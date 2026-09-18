@@ -1,0 +1,85 @@
+[09-May-2025 15:24:23 UTC] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to CodeIgniter\CodeIgniter::__construct() must be an instance of Config\App, null given, called in /home/egpayio/public_html/app/system/Config/Services.php on line 160 and defined in /home/egpayio/public_html/app/system/CodeIgniter.php:191
+Stack trace:
+#0 /home/egpayio/public_html/app/system/Config/Services.php(160): CodeIgniter\CodeIgniter->__construct(NULL)
+#1 /home/egpayio/public_html/app/system/Config/BaseService.php(258): CodeIgniter\Config\Services::codeigniter(NULL, false)
+#2 /home/egpayio/public_html/app/system/Config/BaseService.php(199): CodeIgniter\Config\BaseService::__callStatic('codeigniter', Array)
+#3 /home/egpayio/public_html/app/system/Config/Services.php(155): CodeIgniter\Config\BaseService::getSharedInstance('codeigniter', NULL)
+#4 /home/egpayio/public_html/app/system/Config/BaseService.php(258): CodeIgniter\Config\Services::codeigniter()
+#5 /home/egpayio/public_html/index.php(36): CodeIgniter\Config\BaseService::__callStatic('codeigniter', Array)
+#6 {m in /home/egpayio/public_html/app/system/CodeIgniter.php on line 191
+[09-May-2025 15:24:24 UTC] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to CodeIgniter\CodeIgniter::__construct() must be an instance of Config\App, null given, called in /home/egpayio/public_html/app/system/Config/Services.php on line 160 and defined in /home/egpayio/public_html/app/system/CodeIgniter.php:191
+Stack trace:
+#0 /home/egpayio/public_html/app/system/Config/Services.php(160): CodeIgniter\CodeIgniter->__construct(NULL)
+#1 /home/egpayio/public_html/app/system/Config/BaseService.php(258): CodeIgniter\Config\Services::codeigniter(NULL, false)
+#2 /home/egpayio/public_html/app/system/Config/BaseService.php(199): CodeIgniter\Config\BaseService::__callStatic('codeigniter', Array)
+#3 /home/egpayio/public_html/app/system/Config/Services.php(155): CodeIgniter\Config\BaseService::getSharedInstance('codeigniter', NULL)
+#4 /home/egpayio/public_html/app/system/Config/BaseService.php(258): CodeIgniter\Config\Services::codeigniter()
+#5 /home/egpayio/public_html/index.php(36): CodeIgniter\Config\BaseService::__callStatic('codeigniter', Array)
+#6 {m in /home/egpayio/public_html/app/system/CodeIgniter.php on line 191
+[09-May-2025 15:24:24 UTC] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to CodeIgniter\CodeIgniter::__construct() must be an instance of Config\App, null given, called in /home/egpayio/public_html/app/system/Config/Services.php on line 160 and defined in /home/egpayio/public_html/app/system/CodeIgniter.php:191
+Stack trace:
+#0 /home/egpayio/public_html/app/system/Config/Services.php(160): CodeIgniter\CodeIgniter->__construct(NULL)
+#1 /home/egpayio/public_html/app/system/Config/BaseService.php(258): CodeIgniter\Config\Services::codeigniter(NULL, false)
+#2 /home/egpayio/public_html/app/system/Config/BaseService.php(199): CodeIgniter\Config\BaseService::__callStatic('codeigniter', Array)
+#3 /home/egpayio/public_html/app/system/Config/Services.php(155): CodeIgniter\Config\BaseService::getSharedInstance('codeigniter', NULL)
+#4 /home/egpayio/public_html/app/system/Config/BaseService.php(258): CodeIgniter\Config\Services::codeigniter()
+#5 /home/egpayio/public_html/index.php(36): CodeIgniter\Config\BaseService::__callStatic('codeigniter', Array)
+#6 {m in /home/egpayio/public_html/app/system/CodeIgniter.php on line 191
+[09-May-2025 15:24:25 UTC] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to CodeIgniter\CodeIgniter::__construct() must be an instance of Config\App, null given, called in /home/egpayio/public_html/app/system/Config/Services.php on line 160 and defined in /home/egpayio/public_html/app/system/CodeIgniter.php:191
+Stack trace:
+#0 /home/egpayio/public_html/app/system/Config/Services.php(160): CodeIgniter\CodeIgniter->__construct(NULL)
+#1 /home/egpayio/public_html/app/system/Config/BaseService.php(258): CodeIgniter\Config\Services::codeigniter(NULL, false)
+#2 /home/egpayio/public_html/app/system/Config/BaseService.php(199): CodeIgniter\Config\BaseService::__callStatic('codeigniter', Array)
+#3 /home/egpayio/public_html/app/system/Config/Services.php(155): CodeIgniter\Config\BaseService::getSharedInstance('codeigniter', NULL)
+#4 /home/egpayio/public_html/app/system/Config/BaseService.php(258): CodeIgniter\Config\Services::codeigniter()
+#5 /home/egpayio/public_html/index.php(36): CodeIgniter\Config\BaseService::__callStatic('codeigniter', Array)
+#6 {m in /home/egpayio/public_html/app/system/CodeIgniter.php on line 191
+[09-May-2025 15:24:25 UTC] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to CodeIgniter\CodeIgniter::__construct() must be an instance of Config\App, null given, called in /home/egpayio/public_html/app/system/Config/Services.php on line 160 and defined in /home/egpayio/public_html/app/system/CodeIgniter.php:191
+Stack trace:
+#0 /home/egpayio/public_html/app/system/Config/Services.php(160): CodeIgniter\CodeIgniter->__construct(NULL)
+#1 /home/egpayio/public_html/app/system/Config/BaseService.php(258): CodeIgniter\Config\Services::codeigniter(NULL, false)
+#2 /home/egpayio/public_html/app/system/Config/BaseService.php(199): CodeIgniter\Config\BaseService::__callStatic('codeigniter', Array)
+#3 /home/egpayio/public_html/app/system/Config/Services.php(155): CodeIgniter\Config\BaseService::getSharedInstance('codeigniter', NULL)
+#4 /home/egpayio/public_html/app/system/Config/BaseService.php(258): CodeIgniter\Config\Services::codeigniter()
+#5 /home/egpayio/public_html/index.php(36): CodeIgniter\Config\BaseService::__callStatic('codeigniter', Array)
+#6 {m in /home/egpayio/public_html/app/system/CodeIgniter.php on line 191
+[09-May-2025 15:24:25 UTC] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to CodeIgniter\CodeIgniter::__construct() must be an instance of Config\App, null given, called in /home/egpayio/public_html/app/system/Config/Services.php on line 160 and defined in /home/egpayio/public_html/app/system/CodeIgniter.php:191
+Stack trace:
+#0 /home/egpayio/public_html/app/system/Config/Services.php(160): CodeIgniter\CodeIgniter->__construct(NULL)
+#1 /home/egpayio/public_html/app/system/Config/BaseService.php(258): CodeIgniter\Config\Services::codeigniter(NULL, false)
+#2 /home/egpayio/public_html/app/system/Config/BaseService.php(199): CodeIgniter\Config\BaseService::__callStatic('codeigniter', Array)
+#3 /home/egpayio/public_html/app/system/Config/Services.php(155): CodeIgniter\Config\BaseService::getSharedInstance('codeigniter', NULL)
+#4 /home/egpayio/public_html/app/system/Config/BaseService.php(258): CodeIgniter\Config\Services::codeigniter()
+#5 /home/egpayio/public_html/index.php(36): CodeIgniter\Config\BaseService::__callStatic('codeigniter', Array)
+#6 {m in /home/egpayio/public_html/app/system/CodeIgniter.php on line 191
+[09-May-2025 15:24:25 UTC] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to CodeIgniter\CodeIgniter::__construct() must be an instance of Config\App, null given, called in /home/egpayio/public_html/app/system/Config/Services.php on line 160 and defined in /home/egpayio/public_html/app/system/CodeIgniter.php:191
+Stack trace:
+#0 /home/egpayio/public_html/app/system/Config/Services.php(160): CodeIgniter\CodeIgniter->__construct(NULL)
+#1 /home/egpayio/public_html/app/system/Config/BaseService.php(258): CodeIgniter\Config\Services::codeigniter(NULL, false)
+#2 /home/egpayio/public_html/app/system/Config/BaseService.php(199): CodeIgniter\Config\BaseService::__callStatic('codeigniter', Array)
+#3 /home/egpayio/public_html/app/system/Config/Services.php(155): CodeIgniter\Config\BaseService::getSharedInstance('codeigniter', NULL)
+#4 /home/egpayio/public_html/app/system/Config/BaseService.php(258): CodeIgniter\Config\Services::codeigniter()
+#5 /home/egpayio/public_html/index.php(36): CodeIgniter\Config\BaseService::__callStatic('codeigniter', Array)
+#6 {m in /home/egpayio/public_html/app/system/CodeIgniter.php on line 191
+[31-Jan-2026 12:58:21 UTC] PHP Parse error:  syntax error, unexpected '<', expecting end of file in /home/devasif1/lifetimepay.top/index.php on line 46
+[31-Jan-2026 12:58:23 UTC] PHP Parse error:  syntax error, unexpected '<', expecting end of file in /home/devasif1/lifetimepay.top/index.php on line 46
+[31-Jan-2026 12:58:24 UTC] PHP Parse error:  syntax error, unexpected '<', expecting end of file in /home/devasif1/lifetimepay.top/index.php on line 46
+[31-Jan-2026 12:58:25 UTC] PHP Parse error:  syntax error, unexpected '<', expecting end of file in /home/devasif1/lifetimepay.top/index.php on line 46
+[31-Jan-2026 12:58:25 UTC] PHP Parse error:  syntax error, unexpected '<', expecting end of file in /home/devasif1/lifetimepay.top/index.php on line 46
+[31-Jan-2026 12:58:26 UTC] PHP Parse error:  syntax error, unexpected '<', expecting end of file in /home/devasif1/lifetimepay.top/index.php on line 46
+[31-Jan-2026 12:58:26 UTC] PHP Parse error:  syntax error, unexpected '<', expecting end of file in /home/devasif1/lifetimepay.top/index.php on line 46
+[31-Jan-2026 12:58:26 UTC] PHP Parse error:  syntax error, unexpected '<', expecting end of file in /home/devasif1/lifetimepay.top/index.php on line 46
+[31-Jan-2026 12:58:26 UTC] PHP Parse error:  syntax error, unexpected '<', expecting end of file in /home/devasif1/lifetimepay.top/index.php on line 46
+[31-Jan-2026 12:58:29 UTC] PHP Parse error:  syntax error, unexpected '<', expecting end of file in /home/devasif1/lifetimepay.top/index.php on line 46
+[31-Jan-2026 12:58:34 UTC] PHP Parse error:  syntax error, unexpected '<', expecting end of file in /home/devasif1/lifetimepay.top/index.php on line 46
+[31-Jan-2026 12:58:35 UTC] PHP Parse error:  syntax error, unexpected '<', expecting end of file in /home/devasif1/lifetimepay.top/index.php on line 46
+[31-Jan-2026 12:58:36 UTC] PHP Parse error:  syntax error, unexpected '<', expecting end of file in /home/devasif1/lifetimepay.top/index.php on line 46
+[31-Jan-2026 12:58:37 UTC] PHP Parse error:  syntax error, unexpected '<', expecting end of file in /home/devasif1/lifetimepay.top/index.php on line 46
+[31-Jan-2026 12:58:37 UTC] PHP Parse error:  syntax error, unexpected '<', expecting end of file in /home/devasif1/lifetimepay.top/index.php on line 46
+[31-Jan-2026 12:58:37 UTC] PHP Parse error:  syntax error, unexpected '<', expecting end of file in /home/devasif1/lifetimepay.top/index.php on line 46
+[31-Jan-2026 12:58:38 UTC] PHP Parse error:  syntax error, unexpected '<', expecting end of file in /home/devasif1/lifetimepay.top/index.php on line 46
+[31-Jan-2026 12:58:38 UTC] PHP Parse error:  syntax error, unexpected '<', expecting end of file in /home/devasif1/lifetimepay.top/index.php on line 46
+[31-Jan-2026 12:58:38 UTC] PHP Parse error:  syntax error, unexpected '<', expecting end of file in /home/devasif1/lifetimepay.top/index.php on line 46
+[31-Jan-2026 12:58:39 UTC] PHP Parse error:  syntax error, unexpected '<', expecting end of file in /home/devasif1/lifetimepay.top/index.php on line 46
+[31-Jan-2026 12:58:39 UTC] PHP Parse error:  syntax error, unexpected '<', expecting end of file in /home/devasif1/lifetimepay.top/index.php on line 46
+[31-Jan-2026 12:58:39 UTC] PHP Parse error:  syntax error, unexpected '<', expecting end of file in /home/devasif1/lifetimepay.top/index.php on line 46
