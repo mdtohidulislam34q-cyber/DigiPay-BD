@@ -1,0 +1,2722 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DigiPay BD - Official Platform</title>
+    <!-- FontAwesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&family=Outfit:wght@400;600;700;800;900&family=Tiro+Bangla&display=swap" rel="stylesheet">
+    
+    <style>
+        /* =======================================================
+           --- THEME VARIABLES (Default: Light Mode) ---
+           ======================================================= */
+        :root {
+            --bg-page: #f1f5f9;
+            --bg-gradient: linear-gradient(-45deg, #f8fafc, #e2e8f0, #e0f2fe, #fae8ff);
+            --card-bg: rgba(255, 255, 255, 0.96);
+            --card-border: rgba(0, 0, 0, 0.08);
+            --neon-blue: #0088ff;
+            --neon-purple: #8a2be2;
+            --neon-pink: #ff007f;
+            --text-main: #0f172a;
+            --text-sub: #64748b;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --header-bg: rgba(255, 255, 255, 0.95);
+            --header-border: rgba(0, 0, 0, 0.08);
+            --header-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            --notice-bg: rgba(0, 136, 255, 0.08);
+            --notice-border: rgba(0, 136, 255, 0.18);
+            --notice-color: #0284c7;
+            --dock-bg: rgba(255, 255, 255, 0.92);
+            --dock-border: rgba(0, 0, 0, 0.1);
+            --dock-shadow: 0 15px 35px rgba(0, 0, 0, 0.12), 0 0 20px rgba(0, 136, 255, 0.15);
+            --sidebar-bg: rgba(255, 255, 255, 0.98);
+            --subscreen-bg: #f8fafc;
+            --profile-inner-bg: #ffffff;
+            --quick-btn-bg: rgba(0, 0, 0, 0.04);
+            --quick-btn-border: rgba(0, 0, 0, 0.08);
+            --quick-btn-color: #0f172a;
+            --back-btn-bg: rgba(0, 0, 0, 0.06);
+            --back-btn-border: rgba(0, 0, 0, 0.1);
+            --back-btn-color: #0f172a;
+            --referral-inner-bg: #ffffff;
+            --referral-flex-bg: #e2e8f0;
+            --coming-soon-bg: #ffffff;
+            --service-title-color: #334155;
+            --menu-item-color: #1e293b;
+            --menu-arrow-color: #94a3b8;
+        }
+
+        /* --- Dark Mode Overrides --- */
+        body.dark-mode {
+            --bg-page: #02040a;
+            --bg-gradient: linear-gradient(-45deg, #02040a, #0d021a, #001026, #180015);
+            --card-bg: rgba(13, 18, 30, 0.85);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --neon-blue: #00d2ff;
+            --neon-purple: #8a2be2;
+            --neon-pink: #ff007f;
+            --text-main: #f8fafc;
+            --text-sub: #94a3b8;
+            --header-bg: rgba(5, 8, 16, 0.95);
+            --header-border: rgba(255, 255, 255, 0.08);
+            --header-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+            --notice-bg: rgba(0, 210, 255, 0.06);
+            --notice-border: rgba(0, 210, 255, 0.15);
+            --notice-color: #38bdf8;
+            --dock-bg: rgba(10, 15, 29, 0.88);
+            --dock-border: rgba(255, 255, 255, 0.12);
+            --dock-shadow: 0 15px 35px rgba(0, 0, 0, 0.85), 0 0 20px rgba(0, 210, 255, 0.15);
+            --sidebar-bg: rgba(5, 8, 16, 0.98);
+            --subscreen-bg: #02040a;
+            --profile-inner-bg: #080d1a;
+            --quick-btn-bg: rgba(255, 255, 255, 0.05);
+            --quick-btn-border: rgba(255, 255, 255, 0.1);
+            --quick-btn-color: #ffffff;
+            --back-btn-bg: rgba(255, 255, 255, 0.08);
+            --back-btn-border: rgba(255, 255, 255, 0.08);
+            --back-btn-color: #ffffff;
+            --referral-inner-bg: rgba(6, 9, 18, 0.95);
+            --referral-flex-bg: rgba(0, 0, 0, 0.5);
+            --coming-soon-bg: #060a14;
+            --service-title-color: #cbd5e1;
+            --menu-item-color: #cbd5e1;
+            --menu-arrow-color: #64748b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Outfit', 'Hind Siliguri', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+            transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+        }
+
+        body {
+            background-color: var(--bg-page);
+            color: var(--text-main);
+            padding-bottom: 100px;
+            overflow-x: hidden;
+            background: var(--bg-gradient);
+            background-size: 400% 400%;
+            animation: deepBG 12s ease infinite;
+        }
+
+        @keyframes deepBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* --- Click Ripple Animation --- */
+        .ripple {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ripple-effect {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.35);
+            transform: scale(0);
+            animation: rippleAnim 0.5s linear;
+            pointer-events: none;
+        }
+
+        @keyframes rippleAnim {
+            to { transform: scale(4); opacity: 0; }
+        }
+
+        /* --- Header & Brand --- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 16px;
+            background: var(--header-bg);
+            backdrop-filter: blur(15px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--header-border);
+            box-shadow: var(--header-shadow);
+        }
+
+        .header-left { display: flex; align-items: center; gap: 10px; }
+        .header-right { display: flex; align-items: center; gap: 10px; }
+
+        .menu-icon-btn {
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: var(--neon-blue);
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            background: rgba(0, 136, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(0, 136, 255, 0.25);
+        }
+
+        .theme-toggle-btn {
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            background: rgba(0, 136, 255, 0.1);
+            border: 1px solid rgba(0, 136, 255, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--neon-blue);
+            font-size: 1.15rem;
+            box-shadow: 0 0 10px rgba(0, 136, 255, 0.15);
+            transition: 0.3s ease;
+        }
+
+        .theme-toggle-btn:active {
+            transform: scale(0.92);
+        }
+
+        body.dark-mode .theme-toggle-btn {
+            color: #fbbf24;
+            background: rgba(251, 191, 36, 0.12);
+            border-color: rgba(251, 191, 36, 0.3);
+            box-shadow: 0 0 12px rgba(251, 191, 36, 0.35);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .custom-logo {
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-pink));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.35rem;
+            color: #fff;
+            box-shadow: 0 0 15px rgba(0, 210, 255, 0.5);
+            flex-shrink: 0;
+        }
+
+        .brand-separator {
+            width: 2px;
+            height: 26px;
+            background: linear-gradient(to bottom, transparent, var(--neon-blue), transparent);
+            border-radius: 2px;
+        }
+
+        /* DIGI PAY এবং BD একদম কাছে লাগানো */
+        .brand-text-wrap {
+            display: inline-flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 4px;
+            line-height: 1;
+        }
+
+        .brand-main {
+            font-size: 1.3rem;
+            font-weight: 900;
+            letter-spacing: 0.3px;
+            line-height: 1;
+            display: inline-flex;
+            align-items: center;
+            background: linear-gradient(90deg, #1e293b, var(--neon-blue), var(--neon-pink), #1e293b);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shineText 4s linear infinite;
+            filter: drop-shadow(0 0 8px rgba(0, 136, 255, 0.4));
+        }
+
+        body.dark-mode .brand-main {
+            background: linear-gradient(90deg, #ffffff, var(--neon-blue), var(--neon-pink), #ffffff);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 8px rgba(0, 210, 255, 0.6));
+        }
+
+        .brand-sub {
+            font-size: 0.65rem;
+            font-weight: 900;
+            color: #ffffff;
+            background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
+            padding: 2.5px 6px;
+            border-radius: 6px;
+            letter-spacing: 0.5px;
+            line-height: 1;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 10px rgba(255, 0, 127, 0.5);
+            text-transform: uppercase;
+        }
+
+        @keyframes shineText {
+            to { background-position: 200% center; }
+        }
+
+        .profile-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--neon-purple), var(--neon-blue));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: 2px solid var(--neon-blue);
+            box-shadow: 0 0 12px rgba(0, 210, 255, 0.4);
+            color: #fff;
+        }
+
+        /* --- Ticker Notification --- */
+        .notice-ticker {
+            background: var(--notice-bg);
+            border-bottom: 1px solid var(--notice-border);
+            color: var(--notice-color);
+            padding: 10px 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.85rem;
+        }
+
+        .live-badge {
+            background: linear-gradient(135deg, #ff0055, #ff0000);
+            color: white;
+            font-size: 0.65rem;
+            padding: 3px 8px;
+            border-radius: 20px;
+            font-weight: bold;
+            box-shadow: 0 0 10px rgba(255, 0, 85, 0.7);
+            animation: pulse 1.5s infinite;
+        }
+
+        /* --- Banner Image --- */
+        .banner-container {
+            margin: 15px;
+            border-radius: 20px;
+            padding: 1.5px;
+            background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple), var(--neon-blue));
+            background-size: 300% 300%;
+            animation: deepBG 6s ease infinite;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+        }
+
+        .banner-box {
+            height: 180px;
+            border-radius: 18px;
+            background: #090d18 url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000&auto=format&fit=crop') center/cover no-repeat;
+            display: flex;
+            align-items: flex-end;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .banner-overlay {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(to top, rgba(2, 4, 10, 0.95), transparent);
+            color: #fff;
+        }
+
+        .banner-title { font-size: 1.1rem; font-weight: 800; color: #00d2ff; }
+        .banner-desc { font-size: 0.8rem; color: #cbd5e1; }
+
+        /* --- Verify Account Box (Dashboard) --- */
+        .verify-large-box {
+            margin: 0 15px 22px 15px;
+            padding: 18px 20px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, rgba(255, 0, 127, 0.15), rgba(138, 43, 226, 0.25));
+            border: 1.5px solid var(--neon-pink);
+            box-shadow: 0 8px 25px rgba(255, 0, 127, 0.2);
+            text-align: center;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .verify-large-box h3 {
+            font-family: 'Tiro Bangla', 'Hind Siliguri', serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            letter-spacing: 0.5px;
+        }
+
+        body.dark-mode .verify-large-box h3 {
+            color: #ffffff;
+        }
+
+        .verify-large-box:active { transform: scale(0.97); }
+
+        /* --- Section Titles --- */
+        .section-title {
+            margin: 18px 15px 12px 15px;
+            font-size: 0.9rem;
+            font-weight: 800;
+            color: var(--text-sub);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-title::before {
+            content: '';
+            width: 4px;
+            height: 16px;
+            background: var(--neon-pink);
+            border-radius: 4px;
+            box-shadow: 0 0 10px var(--neon-pink);
+        }
+
+        /* --- Social Grid --- */
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin: 0 15px 20px 15px;
+        }
+
+        .social-card {
+            position: relative;
+            padding: 14px 0;
+            border-radius: 14px;
+            text-align: center;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.04);
+            z-index: 1;
+            transition: transform 0.2s ease;
+        }
+
+        .social-card::before {
+            content: '';
+            position: absolute;
+            inset: -1.5px;
+            border-radius: 15.5px;
+            background: linear-gradient(0deg, var(--neon-blue), var(--neon-purple), var(--neon-pink), var(--neon-blue));
+            background-size: 300% 300%;
+            animation: rotateProfileBorder 4s linear infinite;
+            z-index: -2;
+            box-shadow: 0 0 6px rgba(0, 210, 255, 0.22);
+        }
+
+        .social-card::after {
+            content: '';
+            position: absolute;
+            inset: 0.5px;
+            border-radius: 13.5px;
+            background: var(--card-bg);
+            z-index: -1;
+            transition: background 0.3s ease;
+        }
+
+        .social-card i { 
+            font-size: 2rem; 
+            position: relative;
+            z-index: 2;
+        }
+
+        .social-card:active { transform: scale(0.95); }
+
+        /* --- Services Grid --- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px;
+            margin: 0 15px 25px 15px;
+        }
+
+        .service-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .service-circle {
+            position: relative;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 6px;
+            box-shadow: 0 3px 12px rgba(0, 210, 255, 0.18);
+            transition: 0.2s;
+            z-index: 1;
+        }
+
+        .service-circle::before {
+            content: '';
+            position: absolute;
+            inset: -1.5px;
+            border-radius: 50%;
+            background: linear-gradient(0deg, var(--neon-blue), var(--neon-purple), var(--neon-pink), var(--neon-blue));
+            background-size: 300% 300%;
+            animation: rotateProfileBorder 4s linear infinite;
+            z-index: -2;
+            box-shadow: 0 0 6px rgba(0, 210, 255, 0.25);
+        }
+
+        .service-circle::after {
+            content: '';
+            position: absolute;
+            inset: 0.5px;
+            border-radius: 50%;
+            background: var(--card-bg);
+            z-index: -1;
+            transition: background 0.3s ease;
+        }
+
+        .service-circle i {
+            font-size: 1.3rem;
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            z-index: 2;
+        }
+
+        .service-title {
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: var(--service-title-color);
+            line-height: 1.1;
+        }
+
+        .service-card:active .service-circle { transform: scale(0.92); }
+
+        /* --- Referral Link Box --- */
+        .referral-container {
+            margin: 0 15px 25px 15px;
+            padding: 1.5px;
+            border-radius: 18px;
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple), var(--neon-pink));
+            background-size: 300% 300%;
+            animation: deepBG 6s ease infinite;
+        }
+
+        .referral-inner {
+            background: var(--referral-inner-bg);
+            border-radius: 16px;
+            padding: 15px;
+        }
+
+        .referral-title {
+            font-size: 0.75rem;
+            color: var(--text-sub);
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
+        .referral-flex {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--referral-flex-bg);
+            border-radius: 10px;
+            padding: 8px 12px;
+            border: 1px solid var(--card-border);
+        }
+
+        .referral-flex code {
+            font-size: 0.8rem;
+            color: var(--neon-blue);
+            font-weight: 700;
+        }
+
+        .copy-btn {
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
+            color: white;
+            border: none;
+            padding: 7px 12px;
+            border-radius: 8px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* --- FOOTER NAVIGATION DOCK --- */
+        .bottom-nav {
+            position: fixed;
+            bottom: 12px; 
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 24px);
+            max-width: 480px;
+            height: 70px;
+            background: var(--dock-bg);
+            backdrop-filter: blur(22px);
+            -webkit-backdrop-filter: blur(22px);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            border: 1px solid var(--dock-border);
+            border-radius: 26px;
+            z-index: 2500;
+            box-shadow: var(--dock-shadow);
+            padding: 0 6px;
+            user-select: none;
+        }
+
+        .nav-item {
+            position: relative;
+            flex: 1;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-sub);
+            cursor: pointer;
+            gap: 4px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            border-radius: 18px;
+            z-index: 10;
+        }
+
+        .nav-item > * { pointer-events: none; }
+
+        .nav-icon-wrapper {
+            position: relative;
+            width: 42px;
+            height: 34px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .nav-item i {
+            font-size: 1.35rem;
+            transition: all 0.3s ease;
+            color: var(--text-sub);
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
+        }
+
+        .nav-label {
+            font-size: 0.68rem;
+            font-weight: 600;
+            letter-spacing: 0.2px;
+            transition: all 0.3s ease;
+            color: var(--text-sub);
+        }
+
+        .active-indicator {
+            position: absolute;
+            top: 2px;
+            width: 20px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--neon-blue), var(--neon-pink));
+            border-radius: 10px;
+            box-shadow: 0 0 12px var(--neon-blue), 0 0 6px var(--neon-pink);
+            opacity: 0;
+            transform: scaleX(0);
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: none;
+        }
+
+        .nav-item.active { color: var(--text-main); }
+
+        .nav-item.active .nav-icon-wrapper {
+            transform: translateY(-5px);
+            background: linear-gradient(135deg, rgba(0, 136, 255, 0.18), rgba(255, 0, 127, 0.18));
+            border: 1px solid rgba(0, 136, 255, 0.4);
+            box-shadow: 0 6px 18px rgba(0, 136, 255, 0.3);
+        }
+
+        .nav-item.active i {
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 8px var(--neon-blue));
+        }
+
+        .nav-item.active .nav-label {
+            color: var(--neon-blue);
+            font-weight: 800;
+            text-shadow: 0 0 8px rgba(0, 136, 255, 0.5);
+        }
+
+        .nav-item.active .active-indicator {
+            opacity: 1;
+            transform: scaleX(1);
+        }
+
+        .nav-item:active { transform: scale(0.92); }
+
+        .nav-item.center-shop-wrap {
+            position: relative;
+            flex: 0 0 64px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            margin-top: -28px;
+            height: calc(100% + 28px);
+            z-index: 2600;
+            cursor: pointer;
+        }
+
+        .center-fab-btn {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple), var(--neon-blue));
+            background-size: 200% 200%;
+            animation: deepBG 4s ease infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            border: 3.5px solid var(--dock-bg);
+            box-shadow: 0 8px 25px rgba(255, 0, 127, 0.5), 0 0 20px rgba(0, 136, 255, 0.4);
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            pointer-events: none;
+        }
+
+        .center-fab-btn i {
+            font-size: 1.45rem;
+            color: #ffffff !important;
+            -webkit-text-fill-color: initial !important;
+            filter: drop-shadow(0 2px 5px rgba(0,0,0,0.4));
+            transition: transform 0.3s ease;
+        }
+
+        .center-fab-btn::before {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: 50%;
+            border: 1.5px solid var(--neon-pink);
+            opacity: 0.8;
+            animation: fabPulse 2s infinite ease-out;
+            pointer-events: none;
+        }
+
+        @keyframes fabPulse {
+            0% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.2); opacity: 0.1; }
+            100% { transform: scale(1); opacity: 0.8; }
+        }
+
+        .center-shop-wrap .nav-label {
+            margin-top: 4px;
+            font-size: 0.68rem;
+            font-weight: 800;
+            color: var(--neon-pink);
+            letter-spacing: 0.3px;
+            text-shadow: 0 0 8px rgba(255, 0, 127, 0.4);
+            pointer-events: none;
+        }
+
+        .center-shop-wrap.active .center-fab-btn {
+            transform: translateY(-2px) scale(1.1);
+            box-shadow: 0 0 35px rgba(255, 0, 127, 0.95), 0 0 25px rgba(0, 136, 255, 0.85);
+        }
+
+        .center-shop-wrap:active .center-fab-btn { transform: scale(0.92); }
+
+        /* --- Sidebar Drawer --- */
+        .sidebar-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(8px);
+            z-index: 2999;
+            display: none;
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0; left: -320px;
+            width: 310px; height: 100%;
+            background: var(--sidebar-bg);
+            backdrop-filter: blur(20px);
+            z-index: 3000;
+            transition: left 0.3s ease;
+            overflow-y: auto;
+            padding: 20px 16px;
+            box-shadow: 10px 0 35px rgba(0, 0, 0, 0.5);
+            border-right: 1px solid var(--card-border);
+        }
+
+        .sidebar.active { left: 0; }
+
+        .sidebar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .sidebar-title {
+            font-size: 1.25rem;
+            font-weight: 900;
+            letter-spacing: 0.5px;
+            background: linear-gradient(90deg, #1e293b, var(--neon-blue), var(--neon-pink), #1e293b);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shineText 4s linear infinite;
+            filter: drop-shadow(0 0 8px rgba(0, 136, 255, 0.4));
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        body.dark-mode .sidebar-title {
+            background: linear-gradient(90deg, #ffffff, var(--neon-blue), var(--neon-pink), #ffffff);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .sidebar-title i {
+            -webkit-text-fill-color: initial;
+            color: var(--neon-blue);
+        }
+
+        .close-sidebar-btn {
+            width: 35px; height: 35px;
+            border-radius: 50%;
+            background: var(--back-btn-bg);
+            border: 1px solid var(--back-btn-border);
+            color: var(--text-main);
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer;
+        }
+
+        /* =======================================================
+           --- ULTRA UNIQUE & FUTURISTIC PROFILE CARD IN SIDEBAR ---
+           ======================================================= */
+        .user-profile-card {
+            position: relative;
+            border-radius: 24px;
+            padding: 2px;
+            margin-bottom: 22px;
+            background: linear-gradient(0deg, var(--neon-blue), var(--neon-purple), var(--neon-pink), var(--neon-blue));
+            background-size: 300% 300%;
+            animation: rotateProfileBorder 4s linear infinite;
+            box-shadow: 0 10px 30px rgba(0, 136, 255, 0.22), 0 0 20px rgba(255, 0, 127, 0.18);
+            overflow: hidden;
+        }
+
+        @keyframes rotateProfileBorder {
+            0% { background-position: 0% 0%; }
+            50% { background-position: 100% 100%; }
+            100% { background-position: 0% 0%; }
+        }
+
+        .user-profile-inner {
+            background: var(--profile-inner-bg);
+            border-radius: 22px;
+            padding: 22px 14px 18px 14px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* কার্ডের ভিতর অ্যানিমেটেড হোলোগ্রাফিক আলো ছড়িয়ে যাওয়া */
+        .card-shimmer-sweep {
+            position: absolute;
+            top: -50%;
+            left: -60%;
+            width: 220%;
+            height: 220%;
+            background: linear-gradient(
+                60deg,
+                transparent 42%,
+                rgba(255, 255, 255, 0.15) 50%,
+                transparent 58%
+            );
+            transform: rotate(25deg);
+            animation: shimmerSweep 6s infinite;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        body.dark-mode .card-shimmer-sweep {
+            background: linear-gradient(
+                60deg,
+                transparent 42%,
+                rgba(0, 210, 255, 0.12) 50%,
+                transparent 58%
+            );
+        }
+
+        @keyframes shimmerSweep {
+            0% { transform: translateX(-100%) rotate(25deg); }
+            25%, 100% { transform: translateX(100%) rotate(25deg); }
+        }
+
+        /* ব্যাকগ্রাউন্ড অ্যাম্বিয়েন্ট গ্লোয়িং লাইট বল */
+        .profile-bg-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(28px);
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.3;
+            animation: floatOrb 7s ease-in-out infinite alternate;
+        }
+
+        .orb-1 {
+            width: 100px;
+            height: 100px;
+            background: var(--neon-blue);
+            top: -25px;
+            left: -20px;
+        }
+
+        .orb-2 {
+            width: 90px;
+            height: 90px;
+            background: var(--neon-pink);
+            bottom: -20px;
+            right: -20px;
+            animation-delay: -3.5s;
+        }
+
+        @keyframes floatOrb {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(18px, 18px) scale(1.2); }
+        }
+
+        /* Avatar Container with glowing aura & orbital ring */
+        .user-avatar-wrap {
+            position: relative;
+            width: 78px;
+            height: 78px;
+            margin: 4px auto 14px auto;
+            z-index: 2;
+        }
+
+        /* ভাসমান গোল্ডেন ভিআইপি ক্রাউন */
+        .vip-crown-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #f59e0b, #fbbf24, #d97706);
+            color: #ffffff;
+            font-size: 0.6rem;
+            font-weight: 900;
+            padding: 2.5px 8px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.55);
+            letter-spacing: 0.6px;
+            animation: crownFloat 2.6s ease-in-out infinite;
+            z-index: 6;
+            white-space: nowrap;
+        }
+
+        @keyframes crownFloat {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-3.5px); }
+        }
+
+        /* অবতারের চারপাশের ঘূর্ণায়মান অরবিট রিং */
+        .avatar-orbit-ring {
+            position: absolute;
+            inset: -8px;
+            border-radius: 50%;
+            border: 1.5px dashed rgba(0, 210, 255, 0.5);
+            animation: spinOrbit 12s linear infinite;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .orbiting-dot {
+            position: absolute;
+            top: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--neon-pink);
+            box-shadow: 0 0 10px var(--neon-pink), 0 0 16px var(--neon-blue);
+        }
+
+        @keyframes spinOrbit {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .user-avatar {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple), var(--neon-pink));
+            background-size: 200% 200%;
+            animation: deepBG 6s ease infinite, avatarPulseGlow 3s ease-in-out infinite alternate;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.15rem;
+            color: #fff;
+            border: 3px solid var(--profile-inner-bg);
+            box-shadow: 0 0 20px rgba(0, 136, 255, 0.45), 0 4px 15px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        @keyframes avatarPulseGlow {
+            0% { box-shadow: 0 0 15px rgba(0, 136, 255, 0.4), 0 0 5px rgba(255, 0, 127, 0.3); }
+            100% { box-shadow: 0 0 26px rgba(255, 0, 127, 0.65), 0 0 16px rgba(0, 210, 255, 0.7); }
+        }
+
+        .user-avatar:hover { transform: scale(1.05); }
+
+        /* ভেরিফাইড ও আনভেরিফাইড ব্যাজ */
+        .avatar-verified-dot {
+            position: absolute;
+            bottom: 0px;
+            right: 0px;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: #10b981;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.72rem;
+            border: 2.5px solid var(--profile-inner-bg);
+            box-shadow: 0 0 12px rgba(16, 185, 129, 0.8);
+            z-index: 4;
+            animation: pulseVerified 2s infinite;
+        }
+
+        .avatar-verified-dot.unverified {
+            background: #ef4444 !important;
+            box-shadow: 0 0 12px rgba(239, 68, 68, 0.8) !important;
+            animation: pulseUnverified 2s infinite !important;
+        }
+
+        @keyframes pulseVerified {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 10px rgba(16, 185, 129, 0.7); }
+            50% { transform: scale(1.1); box-shadow: 0 0 18px rgba(16, 185, 129, 0.95); }
+        }
+
+        @keyframes pulseUnverified {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 10px rgba(239, 68, 68, 0.7); }
+            50% { transform: scale(1.1); box-shadow: 0 0 18px rgba(239, 68, 68, 0.95); }
+        }
+
+        /* User Name & Status Badge */
+        .profile-name-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            margin-bottom: 4px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .profile-user-name {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--text-main);
+            letter-spacing: 0.3px;
+        }
+
+        .name-sparkle {
+            color: #f59e0b;
+            font-size: 0.9rem;
+            animation: spinSparkle 3s ease-in-out infinite;
+        }
+
+        @keyframes spinSparkle {
+            0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.8; }
+            50% { transform: scale(1.3) rotate(180deg); opacity: 1; filter: drop-shadow(0 0 8px #f59e0b); }
+        }
+
+        .profile-role-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.12), rgba(0, 136, 255, 0.12));
+            color: #10b981;
+            border: 1px solid rgba(16, 185, 129, 0.35);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.72rem;
+            font-weight: 800;
+            margin-bottom: 14px;
+            letter-spacing: 0.2px;
+            box-shadow: 0 0 10px rgba(16, 185, 129, 0.2);
+            position: relative;
+            z-index: 2;
+        }
+
+        .profile-role-badge i {
+            animation: pulseGem 2s infinite;
+        }
+
+        @keyframes pulseGem {
+            0%, 100% { transform: scale(1); filter: drop-shadow(0 0 2px #10b981); }
+            50% { transform: scale(1.25); filter: drop-shadow(0 0 8px #10b981); }
+        }
+
+        /* --- প্রিমিয়াম মিনি স্ট্যাটাস ড্যাশবোর্ড বার --- */
+        .profile-mini-stats {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            background: rgba(0, 136, 255, 0.05);
+            border: 1px solid rgba(0, 136, 255, 0.14);
+            border-radius: 14px;
+            padding: 8px 6px;
+            margin-bottom: 12px;
+            backdrop-filter: blur(10px);
+            position: relative;
+            z-index: 2;
+        }
+
+        body.dark-mode .profile-mini-stats {
+            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(255, 255, 255, 0.08);
+        }
+
+        .stat-mini-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+            flex: 1;
+        }
+
+        .stat-mini-label {
+            font-size: 0.66rem;
+            color: var(--text-sub);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .stat-mini-val {
+            font-size: 0.88rem;
+            font-weight: 800;
+            color: var(--text-main);
+            letter-spacing: 0.3px;
+        }
+
+        .stat-mini-divider {
+            width: 1px;
+            height: 22px;
+            background: var(--card-border);
+        }
+
+        /* --- সাইবার স্টাইলিশ অ্যাফিলিয়েট আইডি বক্স --- */
+        .affiliate-id-box {
+            position: relative;
+            background: var(--quick-btn-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 10px 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.03);
+            transition: border-color 0.3s ease;
+            overflow: hidden;
+            z-index: 2;
+        }
+
+        .affiliate-id-box:hover {
+            border-color: rgba(0, 136, 255, 0.4);
+        }
+
+        .affiliate-label-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .affiliate-label {
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--text-sub);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .affiliate-label i {
+            color: var(--neon-blue);
+            font-size: 0.85rem;
+        }
+
+        .affiliate-status-tag {
+            font-size: 0.65rem;
+            color: #10b981;
+            font-weight: 800;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            background: rgba(16, 185, 129, 0.12);
+            padding: 1px 7px;
+            border-radius: 10px;
+        }
+
+        .affiliate-status-tag i {
+            font-size: 0.55rem;
+            animation: blinkDot 1.5s infinite;
+        }
+
+        @keyframes blinkDot {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .affiliate-code-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--profile-inner-bg);
+            border: 1.5px dashed rgba(0, 136, 255, 0.45);
+            border-radius: 12px;
+            padding: 6px 8px 6px 12px;
+            transition: all 0.3s ease;
+        }
+
+        .code-with-icon {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .code-badge-icon {
+            color: var(--neon-pink);
+            font-size: 1.1rem;
+            filter: drop-shadow(0 0 6px rgba(255, 0, 127, 0.5));
+            animation: pulseIcon 3s infinite;
+        }
+
+        @keyframes pulseIcon {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+        }
+
+        .affiliate-code {
+            font-family: 'Outfit', monospace, sans-serif;
+            font-size: 1.35rem;
+            font-weight: 900;
+            color: var(--neon-blue);
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(0, 136, 255, 0.35);
+        }
+
+        body.dark-mode .affiliate-code {
+            color: var(--neon-blue);
+            text-shadow: 0 0 14px rgba(0, 210, 255, 0.7);
+        }
+
+        .affiliate-copy-btn {
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple), var(--neon-pink));
+            background-size: 200% 200%;
+            animation: deepBG 4s ease infinite;
+            color: #ffffff;
+            border: none;
+            padding: 8px 14px;
+            border-radius: 10px;
+            font-size: 0.78rem;
+            font-weight: 800;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 3px 12px rgba(0, 136, 255, 0.35);
+            transition: all 0.2s ease;
+        }
+
+        .affiliate-copy-btn:hover {
+            box-shadow: 0 4px 18px rgba(255, 0, 127, 0.55);
+            transform: translateY(-1px);
+        }
+
+        .affiliate-copy-btn:active {
+            transform: scale(0.92);
+        }
+
+        .affiliate-copy-btn i {
+            font-size: 0.82rem;
+        }
+
+        /* --- SIDEBAR MENU ITEMS --- */
+        .menu-list { list-style: none; }
+
+        .menu-item {
+            position: relative;
+            padding: 13px 16px;
+            border-radius: 14px;
+            margin-bottom: 9px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--menu-item-color);
+            transition: 0.25s ease;
+            z-index: 1;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .menu-item::before {
+            content: '';
+            position: absolute;
+            inset: -1.5px;
+            border-radius: 15.5px;
+            background: linear-gradient(0deg, var(--neon-blue), var(--neon-purple), var(--neon-pink), var(--neon-blue));
+            background-size: 300% 300%;
+            animation: rotateProfileBorder 4s linear infinite;
+            z-index: -2;
+            box-shadow: 0 0 6px rgba(0, 210, 255, 0.22);
+        }
+
+        .menu-item::after {
+            content: '';
+            position: absolute;
+            inset: 0.5px;
+            border-radius: 13.5px;
+            background: var(--profile-inner-bg);
+            z-index: -1;
+            transition: background 0.3s ease;
+        }
+
+        .menu-item i:first-child {
+            width: 24px;
+            text-align: center;
+            font-size: 1.22rem;
+            flex-shrink: 0;
+            z-index: 2;
+        }
+
+        .menu-text {
+            flex: 1;
+            letter-spacing: 0.2px;
+            z-index: 2;
+        }
+
+        .menu-arrow {
+            margin-left: auto;
+            font-size: 0.95rem;
+            color: var(--menu-arrow-color);
+            opacity: 0.75;
+            transition: transform 0.2s ease, opacity 0.2s ease, color 0.2s ease;
+            flex-shrink: 0;
+            z-index: 2;
+        }
+
+        .menu-item:hover, .menu-item.active-menu {
+            color: var(--neon-blue);
+            transform: translateX(4px);
+        }
+
+        .menu-item:hover::after, .menu-item.active-menu::after {
+            background: linear-gradient(rgba(0, 136, 255, 0.12), rgba(0, 136, 255, 0.12)), var(--profile-inner-bg);
+        }
+
+        .menu-item:hover .menu-arrow,
+        .menu-item.active-menu .menu-arrow {
+            transform: translateX(4px);
+            opacity: 1;
+            color: var(--neon-blue);
+        }
+
+        .logout-btn {
+            margin-top: 15px;
+            background: linear-gradient(135deg, #ef4444, #991b1b);
+            color: white; padding: 14px;
+            text-align: center; border-radius: 12px;
+            font-weight: 800; cursor: pointer;
+            font-size: 1.05rem;
+            box-shadow: 0 0 20px rgba(239, 68, 68, 0.4);
+        }
+
+        /* --- Full Screen Views & Modals --- */
+        .sub-screen {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--subscreen-bg);
+            z-index: 2000;
+            display: none;
+            flex-direction: column;
+            padding: 20px 15px 100px 15px;
+            overflow-y: auto;
+            animation: fadeIn 0.25s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.98); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .sub-screen-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .back-btn {
+            width: 40px; height: 40px;
+            border-radius: 12px;
+            background: var(--back-btn-bg);
+            border: 1px solid var(--back-btn-border);
+            color: var(--back-btn-color);
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; font-size: 1.1rem;
+            transition: 0.2s;
+        }
+
+        .back-btn:active { transform: scale(0.92); }
+
+        .screen-heading {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .app-glass-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 18px;
+            padding: 20px;
+            margin-bottom: 18px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .app-gradient-card {
+            border-radius: 20px;
+            padding: 1.5px;
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple), var(--neon-pink));
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .app-gradient-inner {
+            background: var(--profile-inner-bg);
+            border-radius: 18.5px;
+            padding: 22px;
+        }
+
+        .card-stat-title {
+            font-size: 0.82rem;
+            color: var(--text-sub);
+            margin-bottom: 6px;
+        }
+
+        .card-stat-value {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--text-main);
+            letter-spacing: 0.5px;
+        }
+
+        .quick-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .quick-action-btn {
+            background: var(--quick-btn-bg);
+            border: 1px solid var(--quick-btn-border);
+            border-radius: 14px;
+            padding: 14px;
+            text-align: center;
+            cursor: pointer;
+            transition: 0.2s;
+            color: var(--quick-btn-color);
+            font-size: 0.85rem;
+            font-weight: 700;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .quick-action-btn i {
+            font-size: 1.4rem;
+            color: var(--neon-blue);
+        }
+
+        .quick-action-btn:active {
+            transform: scale(0.95);
+            background: rgba(0, 136, 255, 0.12);
+        }
+
+        .shop-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+        }
+
+        .shop-item-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+        }
+
+        .shop-icon-box {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            background: rgba(255, 0, 127, 0.12);
+            border: 1px solid rgba(255, 0, 127, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            color: var(--neon-pink);
+            margin-bottom: 10px;
+        }
+
+        .shop-btn {
+            width: 100%;
+            margin-top: 12px;
+            padding: 8px 0;
+            background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        /* --- Coming Soon Box in Service Screen --- */
+        .animated-coming-soon-box {
+            position: relative;
+            margin: auto;
+            width: 100%;
+            max-width: 340px;
+            border-radius: 24px;
+            padding: 1.5px;
+            background: linear-gradient(0deg, var(--neon-blue), var(--neon-purple), var(--neon-pink), var(--neon-blue));
+            background-size: 300% 300%;
+            animation: rotateProfileBorder 4s linear infinite;
+            box-shadow: 0 0 35px rgba(0, 210, 255, 0.3);
+        }
+
+        .coming-soon-content {
+            background: var(--coming-soon-bg);
+            border-radius: 22.5px;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .rocket-icon {
+            font-size: 3.8rem;
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+            animation: floatRocket 2.5s ease-in-out infinite;
+        }
+
+        @keyframes floatRocket {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* --- Fixed Toast --- */
+        .toast {
+            position: fixed;
+            bottom: 95px; left: 50%;
+            transform: translateX(-50%) translateY(50px);
+            background: #10b981; color: white;
+            padding: 10px 20px; border-radius: 30px;
+            font-size: 0.85rem; font-weight: bold;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: all 0.3s ease;
+            z-index: 3500;
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+            visibility: visible;
+            pointer-events: none;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        /* =======================================================
+           --- AUTO PAYMENT GATEWAY MODAL STYLING ---
+           ======================================================= */
+        .gateway-modal-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(2, 4, 10, 0.78);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 4000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            animation: fadeIn 0.25s ease-out;
+        }
+
+        .gateway-modal-card {
+            background: var(--sidebar-bg);
+            border: 1.5px solid var(--card-border);
+            border-radius: 24px;
+            width: 100%;
+            max-width: 430px;
+            padding: 22px 18px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 136, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+            animation: modalScaleUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        @keyframes modalScaleUp {
+            from { transform: scale(0.9) translateY(20px); opacity: 0; }
+            to { transform: scale(1) translateY(0); opacity: 1; }
+        }
+
+        .gateway-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 14px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .gateway-title {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .gateway-close-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--back-btn-bg);
+            border: 1px solid var(--back-btn-border);
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: 0.2s;
+        }
+
+        .gateway-close-btn:active {
+            transform: scale(0.9);
+        }
+
+        .gateway-alert-box {
+            background: rgba(239, 68, 68, 0.12);
+            border: 1px solid rgba(239, 68, 68, 0.35);
+            border-radius: 12px;
+            padding: 10px 12px;
+            color: #ef4444;
+            font-size: 0.82rem;
+            font-weight: 700;
+            margin-bottom: 14px;
+            display: none;
+            align-items: center;
+            gap: 8px;
+            line-height: 1.4;
+        }
+
+        .gateway-plan-box {
+            background: linear-gradient(135deg, rgba(0, 136, 255, 0.1), rgba(255, 0, 127, 0.1));
+            border: 1.5px solid rgba(0, 136, 255, 0.35);
+            border-radius: 16px;
+            padding: 14px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 14px;
+        }
+
+        .gateway-plan-tag {
+            font-size: 0.7rem;
+            font-weight: 800;
+            color: var(--neon-pink);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-bottom: 3px;
+        }
+
+        .gateway-plan-name {
+            font-size: 0.9rem;
+            font-weight: 800;
+            color: var(--text-main);
+        }
+
+        .gateway-amount-wrap {
+            display: flex;
+            align-items: baseline;
+            gap: 3px;
+            color: var(--neon-blue);
+        }
+
+        .gateway-amount-wrap .currency {
+            font-size: 1.1rem;
+            font-weight: 800;
+        }
+
+        .gateway-amount-wrap .amount {
+            font-size: 1.8rem;
+            font-weight: 900;
+            letter-spacing: 0.5px;
+        }
+
+        .gateway-methods-row {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 14px;
+        }
+
+        .method-badge {
+            font-size: 0.72rem;
+            font-weight: 800;
+            padding: 5px 11px;
+            border-radius: 8px;
+            color: #ffffff;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .method-badge.bKash { background: #d82362; }
+        .method-badge.nagad { background: #e04f16; }
+        .method-badge.rocket { background: #8c3494; }
+        .method-badge.upay { background: #005696; }
+
+        .gateway-info-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 16px;
+            background: var(--quick-btn-bg);
+            padding: 12px 14px;
+            border-radius: 14px;
+            border: 1px solid var(--card-border);
+        }
+
+        .gateway-info-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .gateway-primary-btn {
+            width: 100%;
+            background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple), var(--neon-blue));
+            background-size: 200% 200%;
+            animation: deepBG 4s ease infinite;
+            color: #ffffff;
+            border: none;
+            padding: 13px 16px;
+            border-radius: 14px;
+            font-size: 0.96rem;
+            font-weight: 800;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            box-shadow: 0 6px 20px rgba(255, 0, 127, 0.4);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .gateway-primary-btn:active {
+            transform: scale(0.96);
+        }
+
+        .gateway-verify-section {
+            margin-top: 15px;
+        }
+
+        .gateway-divider {
+            text-align: center;
+            position: relative;
+            margin-bottom: 12px;
+        }
+
+        .gateway-divider::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 50%;
+            width: 100%; height: 1px;
+            background: var(--card-border);
+            z-index: 1;
+        }
+
+        .gateway-divider span {
+            position: relative;
+            z-index: 2;
+            background: var(--sidebar-bg);
+            padding: 0 10px;
+            font-size: 0.72rem;
+            color: var(--text-sub);
+            font-weight: 700;
+        }
+
+        .gateway-input-group {
+            display: flex;
+            gap: 8px;
+        }
+
+        .gateway-input {
+            flex: 1;
+            background: var(--quick-btn-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 10px;
+            padding: 9px 12px;
+            font-size: 0.82rem;
+            color: var(--text-main);
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .gateway-input:focus {
+            border-color: var(--neon-blue);
+        }
+
+        .gateway-confirm-btn {
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
+            color: #ffffff;
+            border: none;
+            padding: 9px 14px;
+            border-radius: 10px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            cursor: pointer;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .gateway-confirm-btn:active {
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Main Dashboard View -->
+    <div id="main-dashboard">
+        <header>
+            <div class="header-left">
+                <div class="menu-icon-btn ripple" onclick="toggleSidebar()">
+                    <i class="fa-solid fa-bars-staggered"></i>
+                </div>
+                <div class="logo-container">
+                    <div class="custom-logo">
+                        <i class="fa-solid fa-wallet"></i>
+                    </div>
+                    <div class="brand-separator"></div>
+                    <div class="brand-text-wrap">
+                        <span class="brand-main">DIGI PAY</span>
+                        <span class="brand-sub">BD</span>
+                    </div>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="theme-toggle-btn ripple" id="theme-toggle-btn" onclick="toggleTheme()" title="ডার্ক/লাইট মোড পরিবর্তন">
+                    <i id="theme-icon" class="fa-solid fa-moon"></i>
+                </div>
+                <div class="profile-icon ripple" onclick="toggleSidebar()">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+            </div>
+        </header>
+
+        <div class="notice-ticker">
+            <span class="live-badge">LIVE</span>
+            <marquee scrollamount="5">DigiPay BD-তে স্বাগতম! অটো গেটওয়ে সেবা চালু আছে। আপনার সার্ভিস বাছাই করুন।</marquee>
+        </div>
+
+        <div class="banner-container">
+            <div class="banner-box">
+                <div class="banner-overlay">
+                    <div class="banner-title">⚡ ডিজিটাল পেমেন্ট নেটওয়ার্ক</div>
+                    <div class="banner-desc">সহজে সার্ভিস ব্যবহার করুন এবং বোনাস পান প্রতিদিন!</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- একাউন্ট ভেরিফাই কার্ড (অটো পেমেন্ট গেটওয়ে - ভেরিফাই করার পর স্বয়ংক্রিয়ভাবে লুকিয়ে যাবে) -->
+        <div class="verify-large-box ripple" id="dashboard-verify-card" onclick="openPaymentGatewayModal()">
+            <h3><i class="fa-solid fa-shield-halved" style="color:#ff007f;"></i> একাউন্ট ভেরিফাই করুন</h3>
+        </div>
+
+        <!-- আমাদের সোশ্যাল মিডিয়া -->
+        <div class="section-title">আমাদের সোশ্যাল মিডিয়া</div>
+        <div class="social-grid">
+            <div class="social-card ripple" onclick="openExternalLink('https://facebook.com')"><i class="fa-brands fa-facebook" style="color:#1877f2;"></i></div>
+            <div class="social-card ripple" onclick="openExternalLink('https://youtube.com')"><i class="fa-brands fa-youtube" style="color:#ff0000;"></i></div>
+            <div class="social-card ripple" onclick="openExternalLink('https://telegram.org')"><i class="fa-brands fa-telegram" style="color:#24a1de;"></i></div>
+            <div class="social-card ripple" onclick="openExternalLink('https://whatsapp.com')"><i class="fa-brands fa-whatsapp" style="color:#25d366;"></i></div>
+        </div>
+
+        <!-- আমাদের সার্ভিস সমূহ -->
+        <div class="section-title">আমাদের সার্ভিস সমূহ</div>
+        <div class="services-grid">
+            <div class="service-card ripple" onclick="openServiceScreen('সেন্ড মানি')"><div class="service-circle"><i class="fa-solid fa-paper-plane"></i></div><span class="service-title">সেন্ড মানি</span></div>
+            <div class="service-card ripple" onclick="openServiceScreen('রিসিভ মানি')"><div class="service-circle"><i class="fa-solid fa-hand-holding-dollar"></i></div><span class="service-title">রিসিভ মানি</span></div>
+            <div class="service-card ripple" onclick="openServiceScreen('ডিপিএস করুন')"><div class="service-circle"><i class="fa-solid fa-vault"></i></div><span class="service-title">ডিপিএস করুন</span></div>
+            <div class="service-card ripple" onclick="openServiceScreen('মোবাইল রিচার্জ')"><div class="service-circle"><i class="fa-solid fa-mobile-retro"></i></div><span class="service-title">মোবাইল রিচার্জ</span></div>
+            <div class="service-card ripple" onclick="openServiceScreen('ড্রাইভ অফার')"><div class="service-circle"><i class="fa-solid fa-bolt"></i></div><span class="service-title">ড্রাইভ অফার</span></div>
+            <div class="service-card ripple" onclick="openServiceScreen('টাইপিং জব')"><div class="service-circle"><i class="fa-solid fa-keyboard"></i></div><span class="service-title">টাইপিং জব</span></div>
+            <div class="service-card ripple" onclick="openServiceScreen('কুইজ জব')"><div class="service-circle"><i class="fa-solid fa-brain"></i></div><span class="service-title">কুইজ জব</span></div>
+            <div class="service-card ripple" onclick="openServiceScreen('রিসেলিং')"><div class="service-circle"><i class="fa-solid fa-store"></i></div><span class="service-title">রিসেলিং</span></div>
+            <div class="service-card ripple" onclick="openServiceScreen('এডস ভিউ')"><div class="service-circle"><i class="fa-solid fa-circle-play"></i></div><span class="service-title">এডস ভিউ</span></div>
+            <div class="service-card ripple" onclick="openServiceScreen('মাইক্রো জব')"><div class="service-circle"><i class="fa-solid fa-list-check"></i></div><span class="service-title">মাইক্রো জব</span></div>
+            <div class="service-card ripple" onclick="openServiceScreen('ভেন্ডরশীপ')"><div class="service-circle"><i class="fa-solid fa-user-tie"></i></div><span class="service-title">ভেন্ডরশীপ</span></div>
+            <div class="service-card ripple" onclick="openServiceScreen('জিমেইল মার্কেটিং')"><div class="service-circle"><i class="fa-solid fa-envelope-open-text"></i></div><span class="service-title">জিমেইল মার্কেটিং</span></div>
+            <div class="service-card ripple" onclick="openServiceScreen('ফেসবুক মার্কেটিং')"><div class="service-circle"><i class="fa-brands fa-facebook"></i></div><span class="service-title">ফেসবুক মার্কেটিং</span></div>
+            <div class="service-card ripple" onclick="openServiceScreen('জব পোস্ট')"><div class="service-circle"><i class="fa-solid fa-square-plus"></i></div><span class="service-title">জব পোস্ট</span></div>
+            <div class="service-card ripple" onclick="openServiceScreen('ইনস্টাগ্রাম কুকিজ')"><div class="service-circle"><i class="fa-solid fa-cookie"></i></div><span class="service-title">ইনস্টাগ্রাম কুকিজ</span></div>
+            <div class="service-card ripple" onclick="openServiceScreen('টার্গেট বোনাস')"><div class="service-circle"><i class="fa-solid fa-bullseye"></i></div><span class="service-title">টার্গেট বোনাস</span></div>
+            <div class="service-card ripple" onclick="openServiceScreen('লিডারশিপ')"><div class="service-circle"><i class="fa-solid fa-trophy"></i></div><span class="service-title">লিডারশিপ</span></div>
+            <div class="service-card ripple" onclick="openServiceScreen('সেলারি')"><div class="service-circle"><i class="fa-solid fa-money-bill-wave"></i></div><span class="service-title">সেলারি</span></div>
+            <div class="service-card ripple" onclick="openServiceScreen('ইনস্টাগ্রাম মার্কেটিং')"><div class="service-circle"><i class="fa-brands fa-instagram"></i></div><span class="service-title">ইনস্টাগ্রাম মার্কেটিং</span></div>
+            <div class="service-card ripple" onclick="openServiceScreen('ডিজিটাল সার্ভিস')"><div class="service-circle"><i class="fa-solid fa-laptop-code"></i></div><span class="service-title">ডিজিটাল সার্ভিস</span></div>
+            <div class="service-card ripple" onclick="openServiceScreen('সোশ্যাল সার্ভিস')"><div class="service-circle"><i class="fa-solid fa-share-nodes"></i></div><span class="service-title">সোশ্যাল সার্ভিস</span></div>
+            <div class="service-card ripple" onclick="openServiceScreen('এডস মার্কেটিং')"><div class="service-circle"><i class="fa-solid fa-rectangle-ad"></i></div><span class="service-title">এডস মার্কেটিং</span></div>
+            <div class="service-card ripple" onclick="openServiceScreen('ওয়েব সার্ভিস')"><div class="service-circle"><i class="fa-solid fa-globe"></i></div><span class="service-title">ওয়েব সার্ভিস</span></div>
+            <div class="service-card ripple" onclick="openServiceScreen('পে বিল')"><div class="service-circle"><i class="fa-solid fa-file-invoice-dollar"></i></div><span class="service-title">পে বিল</span></div>
+            <div class="service-card ripple" onclick="openServiceScreen('গিফট কোড')"><div class="service-circle"><i class="fa-solid fa-gift"></i></div><span class="service-title">গিফট কোড</span></div>
+        </div>
+
+        <div class="referral-container">
+            <div class="referral-inner">
+                <div class="referral-title">আপনার রেফারেল লিংক শেয়ার করুন</div>
+                <div class="referral-flex">
+                    <code id="ref-link">https://digipaybd.shop/ref?id=88392</code>
+                    <button class="copy-btn ripple" onclick="copyReferral()">
+                        <i class="fa-regular fa-copy"></i> কপি
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER NAVIGATION DOCK -->
+    <nav class="bottom-nav">
+        <div class="nav-item active ripple" id="nav-dashboard" onclick="switchNavTab('dashboard')">
+            <div class="active-indicator"></div>
+            <div class="nav-icon-wrapper"><i class="fa-solid fa-house-laptop"></i></div>
+            <span class="nav-label">ড্যাশবোর্ড</span>
+        </div>
+
+        <div class="nav-item ripple" id="nav-agent" onclick="switchNavTab('agent')">
+            <div class="active-indicator"></div>
+            <div class="nav-icon-wrapper"><i class="fa-solid fa-user-tie"></i></div>
+            <span class="nav-label">এজেন্ট</span>
+        </div>
+
+        <div class="nav-item center-shop-wrap ripple" id="nav-shop" onclick="switchNavTab('shop')">
+            <div class="center-fab-btn"><i class="fa-solid fa-store"></i></div>
+            <span class="nav-label">শপ</span>
+        </div>
+
+        <div class="nav-item ripple" id="nav-wallet" onclick="switchNavTab('wallet')">
+            <div class="active-indicator"></div>
+            <div class="nav-icon-wrapper"><i class="fa-solid fa-wallet"></i></div>
+            <span class="nav-label">ওয়ালেট</span>
+        </div>
+
+        <div class="nav-item ripple" id="nav-network" onclick="switchNavTab('network')">
+            <div class="active-indicator"></div>
+            <div class="nav-icon-wrapper"><i class="fa-solid fa-users-gear"></i></div>
+            <span class="nav-label">নেটওয়ার্ক</span>
+        </div>
+    </nav>
+
+    <!-- Dedicated Sub-Screens -->
+    <div id="screen-agent" class="sub-screen">
+        <div class="sub-screen-header">
+            <div class="back-btn ripple" onclick="switchNavTab('dashboard')"><i class="fa-solid fa-arrow-left"></i></div>
+            <h2 class="screen-heading"><i class="fa-solid fa-user-tie" style="color:var(--neon-blue);"></i> এজেন্ট ড্যাশবোর্ড</h2>
+        </div>
+        <div class="app-gradient-card">
+            <div class="app-gradient-inner">
+                <div class="card-stat-title">এজেন্ট ব্যালেন্স</div>
+                <div class="card-stat-value">৳ ১৫,৪৫০.০০</div>
+                <div style="font-size:0.8rem; color:var(--neon-blue); margin-top:8px;"><i class="fa-solid fa-circle-check"></i> ভেরিফাইড পার্টনার এজেন্ট (#AG-4491)</div>
+            </div>
+        </div>
+        <div class="section-title">এজেন্ট কুইক সার্ভিস</div>
+        <div class="quick-grid">
+            <div class="quick-action-btn ripple" onclick="requireVerifiedAction('ক্যাশ-ইন অপশন ওপেন হচ্ছে...')"><i class="fa-solid fa-money-bill-transfer" style="color:var(--neon-blue);"></i><span>ক্যাশ-ইন করুন</span></div>
+            <div class="quick-action-btn ripple" onclick="requireVerifiedAction('ক্যাশ-আউট অপশন ওপেন হচ্ছে...')"><i class="fa-solid fa-hand-holding-dollar" style="color:var(--neon-pink);"></i><span>ক্যাশ-আউট গ্রহণ</span></div>
+            <div class="quick-action-btn ripple" onclick="requireVerifiedAction('কমিশন হিস্ট্রি লোড হচ্ছে...')"><i class="fa-solid fa-chart-line" style="color:#22c55e;"></i><span>কমিশন হিসাব</span></div>
+            <div class="quick-action-btn ripple" onclick="requireVerifiedAction('এজেন্ট হেল্পলাইন কানেক্ট হচ্ছে...')"><i class="fa-solid fa-headset" style="color:#f59e0b;"></i><span>এজেন্ট হেল্পলাইন</span></div>
+        </div>
+    </div>
+
+    <div id="screen-shop" class="sub-screen">
+        <div class="sub-screen-header">
+            <div class="back-btn ripple" onclick="switchNavTab('dashboard')"><i class="fa-solid fa-arrow-left"></i></div>
+            <h2 class="screen-heading"><i class="fa-solid fa-store" style="color:var(--neon-pink);"></i> ডিজিটাল শপ</h2>
+        </div>
+        <div class="notice-ticker" style="border-radius:12px; margin-bottom:18px;">
+            <span class="live-badge" style="background:#ff007f;">OFFER</span>
+            <span style="font-size:0.8rem;">সব ধরনের প্রিমিয়াম টুলস এবং সার্ভিসে বিশেষ ছাড়!</span>
+        </div>
+        <div class="shop-grid">
+            <div class="shop-item-card">
+                <div class="shop-icon-box"><i class="fa-brands fa-canva"></i></div>
+                <div style="font-weight:700; font-size:0.88rem; color:var(--text-main);">Canva Pro</div>
+                <div style="color:var(--neon-blue); font-size:0.85rem; font-weight:bold; margin-top:4px;">৳ ১৫০ / ১ বছর</div>
+                <button class="shop-btn ripple" onclick="requireVerifiedAction('Canva Pro অর্ডার গৃহীত হয়েছে')">ক্রয় করুন</button>
+            </div>
+            <div class="shop-item-card">
+                <div class="shop-icon-box" style="background:rgba(0, 210, 255, 0.12); color:var(--neon-blue); border-color:rgba(0,210,255,0.3);"><i class="fa-brands fa-telegram"></i></div>
+                <div style="font-weight:700; font-size:0.88rem; color:var(--text-main);">Telegram Premium</div>
+                <div style="color:var(--neon-blue); font-size:0.85rem; font-weight:bold; margin-top:4px;">৳ ৪৫০ / ৩ মাস</div>
+                <button class="shop-btn ripple" onclick="requireVerifiedAction('Telegram অর্ডার গৃহীত হয়েছে')">ক্রয় করুন</button>
+            </div>
+            <div class="shop-item-card">
+                <div class="shop-icon-box" style="background:rgba(234, 179, 8, 0.12); color:#eab308; border-color:rgba(234, 179, 8, 0.3);"><i class="fa-solid fa-fire"></i></div>
+                <div style="font-weight:700; font-size:0.88rem; color:var(--text-main);">সোশ্যাল বুস্টিং</div>
+                <div style="color:var(--neon-blue); font-size:0.85rem; font-weight:bold; margin-top:4px;">৳ ১২০ থেকে শুরু</div>
+                <button class="shop-btn ripple" onclick="requireVerifiedAction('বুস্টিং সার্ভিস পেজে যাচ্ছে...')">অর্ডার করুন</button>
+            </div>
+            <div class="shop-item-card">
+                <div class="shop-icon-box" style="background:rgba(34, 197, 94, 0.12); color:#22c55e; border-color:rgba(34, 197, 94, 0.3);"><i class="fa-solid fa-gift"></i></div>
+                <div style="font-weight:700; font-size:0.88rem; color:var(--text-main);">Google Play Card</div>
+                <div style="color:var(--neon-blue); font-size:0.85rem; font-weight:bold; margin-top:4px;">৳ ৫৫০ / $5</div>
+                <button class="shop-btn ripple" onclick="requireVerifiedAction('গিফট কার্ড রিকোয়েস্ট...')">ক্রয় করুন</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="screen-wallet" class="sub-screen">
+        <div class="sub-screen-header">
+            <div class="back-btn ripple" onclick="switchNavTab('dashboard')"><i class="fa-solid fa-arrow-left"></i></div>
+            <h2 class="screen-heading"><i class="fa-solid fa-wallet" style="color:var(--neon-blue);"></i> মাই ওয়ালেট</h2>
+        </div>
+        <div class="app-gradient-card">
+            <div class="app-gradient-inner">
+                <div class="card-stat-title">সর্বমোট ওয়ালেট ব্যালেন্স</div>
+                <div class="card-stat-value">৳ ১,৪৫০.০০</div>
+                <div style="display:flex; justify-content:space-between; margin-top:14px; padding-top:12px; border-top:1px solid var(--card-border); font-size:0.8rem;">
+                    <span>মেইন ব্যালেন্স: <b style="color:var(--neon-blue);">৳ ৯৫০.০০</b></span>
+                    <span>ভাউচার: <b style="color:var(--neon-pink);">৳ ৫০০.০০</b></span>
+                </div>
+            </div>
+        </div>
+        <div class="section-title">ওয়ালেট অ্যাকশন</div>
+        <div class="quick-grid">
+            <div class="quick-action-btn ripple" onclick="requireVerifiedAction('অ্যাড মানি গেটওয়ে লোড হচ্ছে...')"><i class="fa-solid fa-circle-plus" style="color:#22c55e;"></i><span>অ্যাড মানি</span></div>
+            <div class="quick-action-btn ripple" onclick="requireVerifiedAction('টাকা উত্তোলন পেজ আসছে...')"><i class="fa-solid fa-money-bill-transfer" style="color:#ef4444;"></i><span>টাকা তুলুন</span></div>
+            <div class="quick-action-btn ripple" onclick="requireVerifiedAction('ব্যালেন্স ট্রান্সফার অপশন...')"><i class="fa-solid fa-paper-plane" style="color:var(--neon-blue);"></i><span>ট্রান্সফার</span></div>
+            <div class="quick-action-btn ripple" onclick="requireVerifiedAction('লেনদেন স্টেটমেন্ট দেখাচ্ছে...')"><i class="fa-solid fa-receipt" style="color:#fbbf24;"></i><span>হিস্ট্রি</span></div>
+        </div>
+    </div>
+
+    <div id="screen-network" class="sub-screen">
+        <div class="sub-screen-header">
+            <div class="back-btn ripple" onclick="switchNavTab('dashboard')"><i class="fa-solid fa-arrow-left"></i></div>
+            <h2 class="screen-heading"><i class="fa-solid fa-users-gear" style="color:var(--neon-purple);"></i> মাই নেটওয়ার্ক</h2>
+        </div>
+        <div class="app-gradient-card">
+            <div class="app-gradient-inner">
+                <div class="card-stat-title">মোট টিম মেম্বার</div>
+                <div class="card-stat-value">২৪ জন</div>
+                <div style="display:flex; justify-content:space-between; margin-top:14px; padding-top:12px; border-top:1px solid var(--card-border); font-size:0.8rem;">
+                    <span>একটিভ ইউজার: <b style="color:#22c55e;">১৮ জন</b></span>
+                    <span>মোট কমিশন: <b style="color:var(--neon-blue);">৳ ৩,৪৫০.০০</b></span>
+                </div>
+            </div>
+        </div>
+        <div class="app-glass-card">
+            <div style="font-size:0.88rem; font-weight:700; color:var(--text-main); margin-bottom:12px; display:flex; justify-content:space-between;">
+                <span>জেনারেশন লেভেল</span>
+                <span style="color:var(--neon-blue); font-size:0.8rem;">লেভেল ৩ পর্যন্ত একটিভ</span>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:10px; font-size:0.82rem;">
+                <div style="display:flex; justify-content:space-between; padding:8px 12px; background:var(--quick-btn-bg); border-radius:8px;">
+                    <span>লেভেল ১ (সরাসরি রেফার)</span>
+                    <span style="color:var(--neon-blue); font-weight:bold;">১২ জন</span>
+                </div>
+                <div style="display:flex; justify-content:space-between; padding:8px 12px; background:var(--quick-btn-bg); border-radius:8px;">
+                    <span>লেভেল ২ (সেকেন্ডারি)</span>
+                    <span style="color:var(--neon-purple); font-weight:bold;">৮ জন</span>
+                </div>
+                <div style="display:flex; justify-content:space-between; padding:8px 12px; background:var(--quick-btn-bg); border-radius:8px;">
+                    <span>লেভেল ৩ (টিম মেম্বার)</span>
+                    <span style="color:var(--neon-pink); font-weight:bold;">৪ জন</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Inside Service Screen (Coming Soon Template) -->
+    <div id="service-screen" class="sub-screen">
+        <div class="sub-screen-header">
+            <div class="back-btn ripple" onclick="closeServiceScreen()"><i class="fa-solid fa-arrow-left"></i></div>
+            <h2 id="screen-title" class="screen-heading">সার্ভিস নাম</h2>
+        </div>
+        <div class="animated-coming-soon-box">
+            <div class="coming-soon-content">
+                <i class="fa-solid fa-rocket rocket-icon"></i>
+                <h2 style="font-size: 1.5rem; color: var(--text-main); letter-spacing: 1px;">COMING SOON</h2>
+                <p style="color:var(--neon-blue); font-weight:700; font-size: 0.95rem; margin-top: 8px;">কাজ চলমান রয়েছে!</p>
+                <p style="color:var(--text-sub); font-size: 0.8rem; margin-top: 12px; line-height:1.5;">আমাদের এই বিশেষ সার্ভিসটি খুব শীঘ্রই চালু হতে যাচ্ছে। সাথেই থাকুন!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sidebar Drawer -->
+    <div class="sidebar-overlay" id="sidebar-overlay" onclick="toggleSidebar()"></div>
+    <div id="sidebar" class="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-title"><i class="fa-solid fa-sliders"></i> মেনুবার</div>
+            <div class="close-sidebar-btn ripple" onclick="toggleSidebar()">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+        </div>
+        
+        <!-- =======================================================
+             --- ULTRA UNIQUE & FUTURISTIC PROFILE CARD IN SIDEBAR ---
+             ======================================================= -->
+        <div class="user-profile-card">
+            <div class="user-profile-inner">
+                <!-- ভিতরের চলমান হোলোগ্রাফিক শিমার লাইট -->
+                <div class="card-shimmer-sweep"></div>
+
+                <!-- ব্যাকগ্রাউন্ড গ্লোয়িং এম্বিয়েন্ট অরবস -->
+                <div class="profile-bg-orb orb-1"></div>
+                <div class="profile-bg-orb orb-2"></div>
+
+                <!-- অবতার ও ঘূর্ণায়মান নিওন অরবিট রিং -->
+                <div class="user-avatar-wrap">
+                    <!-- ভাসমান গোল্ডেন ভিআইপি ক্রাউন -->
+                    <div class="vip-crown-badge">
+                        <i class="fa-solid fa-crown"></i> VIP
+                    </div>
+
+                    <!-- ঘূর্ণায়মান অরবিট ডট ট্র্যাক -->
+                    <div class="avatar-orbit-ring">
+                        <div class="orbiting-dot"></div>
+                    </div>
+
+                    <!-- মূল অবতার -->
+                    <div class="user-avatar">
+                        <i class="fa-solid fa-user-astronaut"></i>
+                    </div>
+
+                    <!-- ভেরিফাইড পালসিং ব্যাজ (ভেরিফাই করার আগে ক্রস, ভেরিফাই করার পর ঠিক চিহ্ন) -->
+                    <div class="avatar-verified-dot unverified" id="profile-avatar-status" title="আনভেরিফাইড একাউন্ট">
+                        <i class="fa-solid fa-xmark"></i>
+                    </div>
+                </div>
+
+                <!-- ইউজার নাম ও স্ট্যাটাস ব্যাজ -->
+                <div class="profile-name-wrap">
+                    <h3 class="profile-user-name">আরিফুল ইসলাম</h3>
+                    <span id="profile-sparkle-wrap">
+                        <i class="fa-solid fa-circle-xmark" style="color:#ef4444; font-size:0.9rem;" title="আনভেরিফাইড"></i>
+                    </span>
+                </div>
+
+                <!-- পালসিং রোল ব্যাজ -->
+                <div class="profile-role-badge" id="profile-role-badge" style="background:rgba(239, 68, 68, 0.12); color:#ef4444; border-color:rgba(239, 68, 68, 0.35); box-shadow:0 0 10px rgba(239, 68, 68, 0.2);">
+                    <i class="fa-solid fa-triangle-exclamation" id="profile-role-icon"></i>
+                    <span id="profile-role-text">সাধারণ মেম্বার (আনভেরিফাইড)</span>
+                </div>
+
+                <!-- প্রিমিয়াম মিনি ড্যাশবোর্ড বার (ব্যালেন্স, টিম, র্যাংক) -->
+                <div class="profile-mini-stats">
+                    <div class="stat-mini-item">
+                        <span class="stat-mini-label"><i class="fa-solid fa-wallet" style="color:var(--neon-blue);"></i> ব্যালেন্স</span>
+                        <span class="stat-mini-val" style="color:var(--neon-blue);">৳ ১,৪৫০</span>
+                    </div>
+                    <div class="stat-mini-divider"></div>
+                    <div class="stat-mini-item">
+                        <span class="stat-mini-label"><i class="fa-solid fa-users" style="color:var(--neon-purple);"></i> টিম</span>
+                        <span class="stat-mini-val">২৪ জন</span>
+                    </div>
+                    <div class="stat-mini-divider"></div>
+                    <div class="stat-mini-item">
+                        <span class="stat-mini-label"><i class="fa-solid fa-trophy" style="color:#f59e0b;"></i> র্যাংক</span>
+                        <span class="stat-mini-val" style="color:#f59e0b;">লেভেল ৩</span>
+                    </div>
+                </div>
+
+                <!-- সাইবার অ্যাফিলিয়েট বক্স (ব্লিংকিং স্ট্যাটাস ডট ও নিওন কোড) -->
+                <div class="affiliate-id-box">
+                    <div class="affiliate-label-row">
+                        <span class="affiliate-label">
+                            <i class="fa-solid fa-fingerprint"></i> অ্যাফিলিয়েট আইডি
+                        </span>
+                        <span class="affiliate-status-tag">
+                            <i class="fa-solid fa-circle"></i> এক্টিভ
+                        </span>
+                    </div>
+                    <div class="affiliate-code-row">
+                        <div class="code-with-icon">
+                            <i class="fa-solid fa-shield-halved code-badge-icon"></i>
+                            <span class="affiliate-code" id="affiliate-id-val">88392</span>
+                        </div>
+                        <button class="affiliate-copy-btn ripple" onclick="copyAffiliateId()" title="অ্যাফিলিয়েট আইডি কপি করুন">
+                            <i class="fa-regular fa-copy" id="copy-affiliate-icon"></i>
+                            <span>কপি</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- মেনু লিস্ট -->
+        <ul class="menu-list">
+            <li class="menu-item active-menu ripple" onclick="toggleSidebar(); switchNavTab('dashboard');">
+                <i class="fa-solid fa-house" style="color:var(--neon-blue);"></i>
+                <span class="menu-text">হোম</span>
+                <i class="fa-solid fa-chevron-right menu-arrow"></i>
+            </li>
+            <li class="menu-item ripple" onclick="toggleSidebar(); switchNavTab('wallet');">
+                <i class="fa-solid fa-ticket" style="color:#fbbf24;"></i>
+                <span class="menu-text">ভাউচার ব্যালেন্স</span>
+                <i class="fa-solid fa-chevron-right menu-arrow"></i>
+            </li>
+            <li class="menu-item ripple" onclick="toggleSidebar(); switchNavTab('wallet');">
+                <i class="fa-solid fa-money-bill-transfer" style="color:#f43f5e;"></i>
+                <span class="menu-text">উত্তোলন করুন</span>
+                <i class="fa-solid fa-chevron-right menu-arrow"></i>
+            </li>
+            <li class="menu-item ripple" onclick="toggleSidebar(); switchNavTab('network');">
+                <i class="fa-solid fa-users" style="color:#a855f7;"></i>
+                <span class="menu-text">মাই রেফারেল</span>
+                <i class="fa-solid fa-chevron-right menu-arrow"></i>
+            </li>
+            <li class="menu-item ripple" onclick="toggleSidebar(); requireVerifiedAction('ইনকাম হিস্ট্রি লোড হচ্ছে...');">
+                <i class="fa-solid fa-chart-line" style="color:#22c55e;"></i>
+                <span class="menu-text">ইনকাম হিস্ট্রি</span>
+                <i class="fa-solid fa-chevron-right menu-arrow"></i>
+            </li>
+            <li class="menu-item ripple" onclick="toggleSidebar(); requireVerifiedAction('ব্যালেন্স হিস্ট্রি খোলা হচ্ছে...');">
+                <i class="fa-solid fa-clock-rotate-left" style="color:#0ea5e9;"></i>
+                <span class="menu-text">ব্যালেন্স হিস্ট্রি</span>
+                <i class="fa-solid fa-chevron-right menu-arrow"></i>
+            </li>
+            <li class="menu-item ripple" onclick="toggleSidebar(); requireVerifiedAction('পেমেন্ট হিস্ট্রি খোলা হচ্ছে...');">
+                <i class="fa-solid fa-receipt" style="color:#eab308;"></i>
+                <span class="menu-text">পেমেন্ট হিস্ট্রি</span>
+                <i class="fa-solid fa-chevron-right menu-arrow"></i>
+            </li>
+            <li class="menu-item ripple" onclick="toggleSidebar(); showToast('রেটিং ও রিভিউ অপশন...');">
+                <i class="fa-solid fa-star" style="color:#f59e0b;"></i>
+                <span class="menu-text">রেটিং রিভিউ</span>
+                <i class="fa-solid fa-chevron-right menu-arrow"></i>
+            </li>
+            <li class="menu-item ripple" onclick="toggleSidebar(); showToast('নোটিশ বোর্ড খোলা হচ্ছে...');">
+                <i class="fa-solid fa-bullhorn" style="color:#ec4899;"></i>
+                <span class="menu-text">নোটিশ বোর্ড</span>
+                <i class="fa-solid fa-chevron-right menu-arrow"></i>
+            </li>
+            <li class="menu-item ripple" onclick="toggleSidebar(); showToast('সাপোর্ট সেন্টারে যুক্ত হচ্ছে...');">
+                <i class="fa-solid fa-headset" style="color:#06b6d4;"></i>
+                <span class="menu-text">সাপোর্ট সেন্টার</span>
+                <i class="fa-solid fa-chevron-right menu-arrow"></i>
+            </li>
+            <li class="menu-item ripple" onclick="toggleSidebar(); showToast('ডেভেলপার তথ্য দেখানো হচ্ছে...');">
+                <i class="fa-solid fa-code" style="color:#8b5cf6;"></i>
+                <span class="menu-text">Developer Contact</span>
+                <i class="fa-solid fa-chevron-right menu-arrow"></i>
+            </li>
+            <li class="menu-item ripple" onclick="toggleSidebar(); showToast('সেটিংস পেজ খোলা হচ্ছে...');">
+                <i class="fa-solid fa-gear" style="color:#94a3b8;"></i>
+                <span class="menu-text">সেটিংস</span>
+                <i class="fa-solid fa-chevron-right menu-arrow"></i>
+            </li>
+        </ul>
+
+        <div class="logout-btn ripple" onclick="handleLogout()">
+            <i class="fa-solid fa-right-from-bracket"></i> লগ আউট
+        </div>
+    </div>
+
+    <!-- =======================================================
+         --- AUTO PAYMENT GATEWAY MODAL (RUPANTORPAY INTEGRATED) ---
+         ======================================================= -->
+    <div id="payment-gateway-modal" class="gateway-modal-overlay" onclick="closePaymentGateway(event)">
+        <div class="gateway-modal-card" onclick="event.stopPropagation()">
+            <div class="gateway-header">
+                <div class="gateway-title">
+                    <i class="fa-solid fa-bolt" style="color:#f59e0b;"></i>
+                    <span>অটো পেমেন্ট গেটওয়ে</span>
+                </div>
+                <button class="gateway-close-btn ripple" onclick="closePaymentGateway()">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Warning message when unverified user tries to access tasks/services -->
+            <div id="gateway-alert-msg" class="gateway-alert-box">
+                <i class="fa-solid fa-circle-exclamation"></i>
+                <span id="gateway-alert-text">কাজ শুরু করার জন্য প্রথমে একাউন্ট ভেরিফাই সম্পন্ন করুন!</span>
+            </div>
+
+            <div class="gateway-body">
+                <div class="gateway-plan-box">
+                    <div class="gateway-plan-info">
+                        <div class="gateway-plan-tag"><i class="fa-solid fa-shield-halved"></i> একাউন্ট অ্যাক্টিভেশন</div>
+                        <div class="gateway-plan-name">লাইফটাইম মেম্বারশিপ ভেরিফিকেশন</div>
+                    </div>
+                    <div class="gateway-amount-wrap">
+                        <span class="currency">৳</span>
+                        <span class="amount">৫০</span>
+                    </div>
+                </div>
+
+                <div class="gateway-methods-row">
+                    <span class="method-badge bKash">bKash</span>
+                    <span class="method-badge nagad">Nagad</span>
+                    <span class="method-badge rocket">Rocket</span>
+                    <span class="method-badge upay">Upay</span>
+                </div>
+
+                <div class="gateway-info-list">
+                    <div class="gateway-info-item">
+                        <i class="fa-solid fa-circle-check" style="color:#10b981;"></i>
+                        <span>অটো পেমেন্ট গেটওয়ে দ্বারা তৎক্ষণাৎ ভেরিফাই</span>
+                    </div>
+                    <div class="gateway-info-item">
+                        <i class="fa-solid fa-circle-check" style="color:#10b981;"></i>
+                        <span>সকল সার্ভিস ও ইনকাম কাজের সুযোগ আনলক</span>
+                    </div>
+                    <div class="gateway-info-item" style="font-size:0.75rem; color:var(--text-sub);">
+                        <i class="fa-solid fa-key" style="color:var(--neon-blue);"></i>
+                        <span>Brand Key: <code style="font-size:0.72rem; color:var(--neon-blue);">CfQF71uNv7...EKMJ</code></span>
+                    </div>
+                </div>
+
+                <!-- Main Auto Payment Button (Directs to RupantorPay Link) -->
+                <button class="gateway-primary-btn ripple" onclick="proceedToAutoPayment()">
+                    <i class="fa-solid fa-shield-check"></i>
+                    <span>অটো পেমেন্ট করুন (৳ ৫০)</span>
+                </button>
+
+                <!-- TrxID / Instant Confirmation Section -->
+                <div class="gateway-verify-section">
+                    <div class="gateway-divider">
+                        <span>পেমেন্ট শেষ হলে ভেরিফাই নিশ্চিত করুন</span>
+                    </div>
+                    <div class="gateway-input-group">
+                        <input type="text" id="trx-id-input" class="gateway-input" placeholder="TrxID দিন (যেমন: 9J3K8L2M)">
+                        <button class="gateway-confirm-btn ripple" onclick="verifyAccountManual()">
+                            <i class="fa-solid fa-check"></i> ভেরিফাই
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">রেফারেল লিংক কপি হয়েছে!</div>
+
+    <script>
+        // =======================================================
+        // --- PAYMENT GATEWAY CONFIGURATION ---
+        // =======================================================
+        const PAYMENT_GATEWAY_CONFIG = {
+            brandKey: 'CfQF71uNv7muyRoZa2oLZql4KqZZ26S6jgdPfC2Ia38pleEKMJ',
+            paymentLink: 'https://rupantorpay.com',
+            fee: '50'
+        };
+
+        // Check if account is verified
+        function isAccountVerified() {
+            return localStorage.getItem('digipay_verified') === 'true';
+        }
+
+        // Open Payment Gateway Modal
+        function openPaymentGatewayModal(alertMessage) {
+            const modal = document.getElementById('payment-gateway-modal');
+            const alertBox = document.getElementById('gateway-alert-msg');
+            const alertText = document.getElementById('gateway-alert-text');
+
+            if (alertMessage) {
+                alertText.innerText = alertMessage;
+                alertBox.style.display = 'flex';
+            } else {
+                alertBox.style.display = 'none';
+            }
+
+            modal.style.display = 'flex';
+        }
+
+        // Close Payment Gateway Modal
+        function closePaymentGateway(event) {
+            if (event && event.target && event.target.id !== 'payment-gateway-modal' && !event.target.closest('.gateway-close-btn')) {
+                return;
+            }
+            const modal = document.getElementById('payment-gateway-modal');
+            modal.style.display = 'none';
+        }
+
+        // Proceed to RupantorPay Auto Payment Link
+        function proceedToAutoPayment() {
+            showToast('অটো পেমেন্ট গেটওয়েতে নিয়ে যাওয়া হচ্ছে...');
+            window.open(PAYMENT_GATEWAY_CONFIG.paymentLink, '_blank');
+        }
+
+        // Manual or Instant TrxID Verification Confirmation
+        function verifyAccountManual() {
+            const trxInput = document.getElementById('trx-id-input');
+            const trxId = trxInput ? trxInput.value.trim() : '';
+
+            if (trxId.length > 0 && trxId.length < 4) {
+                showToast('দয়া করে সঠিক ট্রানজেকশন আইডি (TrxID) দিন');
+                return;
+            }
+
+            localStorage.setItem('digipay_verified', 'true');
+            updateVerificationUI();
+            closePaymentGateway();
+            showToast('অভিনন্দন! আপনার একাউন্ট সফলভাবে ভেরিফাই হয়েছে।');
+
+            if (trxInput) trxInput.value = '';
+        }
+
+        // Check automatic return callback from payment gateway in URL
+        function checkPaymentCallback() {
+            const params = new URLSearchParams(window.location.search);
+            const status = params.get('status') || params.get('payment') || params.get('payment_status');
+            const trx = params.get('trx_id') || params.get('transaction_id') || params.get('trxId');
+            const verifiedParam = params.get('verified');
+
+            if (status === 'success' || status === 'COMPLETED' || verifiedParam === 'true' || (trx && status !== 'failed' && status !== 'cancel')) {
+                localStorage.setItem('digipay_verified', 'true');
+                showToast('অভিনন্দন! আপনার পেমেন্ট সফল হয়েছে এবং একাউন্ট ভেরিফাইড!');
+                try {
+                    window.history.replaceState({}, document.title, window.location.pathname);
+                } catch(e) {}
+            }
+        }
+
+        // Update UI based on verification status
+        function updateVerificationUI() {
+            const verified = isAccountVerified();
+            const dashboardVerifyCard = document.getElementById('dashboard-verify-card');
+            const avatarStatus = document.getElementById('profile-avatar-status');
+            const sparkleWrap = document.getElementById('profile-sparkle-wrap');
+            const roleBadge = document.getElementById('profile-role-badge');
+            const roleText = document.getElementById('profile-role-text');
+            const roleIcon = document.getElementById('profile-role-icon');
+
+            // ১. ভেরিফাই করার পর ড্যাশবোর্ড এ ভেরিফিকেশন এর কোনো চিহ্ন দেখাবে না
+            if (dashboardVerifyCard) {
+                dashboardVerifyCard.style.display = verified ? 'none' : 'block';
+            }
+
+            // ২. ভেরিফাই করার আগে প্রোফাইল এ ক্রস থাকবে, ভেরিফাই করার পর ঠিক চিহ্ন দেখাবে
+            if (avatarStatus) {
+                if (verified) {
+                    avatarStatus.className = 'avatar-verified-dot';
+                    avatarStatus.title = 'ভেরিফাইড একাউন্ট';
+                    avatarStatus.innerHTML = '<i class="fa-solid fa-check"></i>';
+                } else {
+                    avatarStatus.className = 'avatar-verified-dot unverified';
+                    avatarStatus.title = 'আনভেরিফাইড একাউন্ট';
+                    avatarStatus.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+                }
+            }
+
+            if (sparkleWrap) {
+                if (verified) {
+                    sparkleWrap.innerHTML = '<i class="fa-solid fa-certificate name-sparkle" title="ভেরিফাইড"></i>';
+                } else {
+                    sparkleWrap.innerHTML = '<i class="fa-solid fa-circle-xmark" style="color:#ef4444; font-size:0.9rem;" title="আনভেরিফাইড"></i>';
+                }
+            }
+
+            if (roleBadge && roleText && roleIcon) {
+                if (verified) {
+                    roleBadge.style.background = 'linear-gradient(135deg, rgba(16, 185, 129, 0.12), rgba(0, 136, 255, 0.12))';
+                    roleBadge.style.color = '#10b981';
+                    roleBadge.style.borderColor = 'rgba(16, 185, 129, 0.35)';
+                    roleBadge.style.boxShadow = '0 0 10px rgba(16, 185, 129, 0.2)';
+                    roleIcon.className = 'fa-solid fa-gem';
+                    roleText.innerText = 'প্রিমিয়াম ভিআইপি মেম্বার';
+                } else {
+                    roleBadge.style.background = 'rgba(239, 68, 68, 0.12)';
+                    roleBadge.style.color = '#ef4444';
+                    roleBadge.style.borderColor = 'rgba(239, 68, 68, 0.35)';
+                    roleBadge.style.boxShadow = '0 0 10px rgba(239, 68, 68, 0.2)';
+                    roleIcon.className = 'fa-solid fa-triangle-exclamation';
+                    roleText.innerText = 'সাধারণ মেম্বার (আনভেরিফাইড)';
+                }
+            }
+        }
+
+        // ৩. ভেরিফাই করার আগে কোনো কাজ করতে পারবে না, ভেরিফাই করার পর কাজ করতে পারবে
+        function requireVerifiedAction(action) {
+            if (!isAccountVerified()) {
+                openPaymentGatewayModal('কাজ করতে হলে একাউন্ট ভেরিফাই করতে হবে। অটো পেমেন্ট গেটওয়ের মাধ্যমে ৫০ টাকা ফি দিয়ে ভেরিফাই সম্পন্ন করুন।');
+                return;
+            }
+            if (typeof action === 'function') {
+                action();
+            } else if (typeof action === 'string') {
+                showToast(action);
+            }
+        }
+
+        // Theme Toggle Logic (Default: Light Mode)
+        function toggleTheme() {
+            const isDark = document.body.classList.toggle('dark-mode');
+            const themeIcon = document.getElementById('theme-icon');
+            if (isDark) {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+                localStorage.setItem('digipay_theme', 'dark');
+                showToast('ডার্ক মোড সক্রিয় করা হয়েছে');
+            } else {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+                localStorage.setItem('digipay_theme', 'light');
+                showToast('লাইট মোড সক্রিয় করা হয়েছে');
+            }
+        }
+
+        // Initialize Theme & Verification on Load
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('digipay_theme');
+            const themeIcon = document.getElementById('theme-icon');
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-mode');
+                if (themeIcon) {
+                    themeIcon.classList.remove('fa-moon');
+                    themeIcon.classList.add('fa-sun');
+                }
+            } else {
+                document.body.classList.remove('dark-mode');
+                if (themeIcon) {
+                    themeIcon.classList.remove('fa-sun');
+                    themeIcon.classList.add('fa-moon');
+                }
+            }
+
+            checkPaymentCallback();
+            updateVerificationUI();
+        });
+
+        // Tab switching logic for Footer
+        function switchNavTab(tabName) {
+            closeServiceScreen();
+
+            const subScreens = document.querySelectorAll('.sub-screen');
+            subScreens.forEach(screen => screen.style.display = 'none');
+
+            const navItems = document.querySelectorAll('.bottom-nav .nav-item');
+            navItems.forEach(item => item.classList.remove('active'));
+
+            if (tabName === 'dashboard') {
+                document.getElementById('nav-dashboard').classList.add('active');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else if (tabName === 'agent') {
+                document.getElementById('nav-agent').classList.add('active');
+                document.getElementById('screen-agent').style.display = 'flex';
+            } else if (tabName === 'shop') {
+                document.getElementById('nav-shop').classList.add('active');
+                document.getElementById('screen-shop').style.display = 'flex';
+            } else if (tabName === 'wallet') {
+                document.getElementById('nav-wallet').classList.add('active');
+                document.getElementById('screen-wallet').style.display = 'flex';
+            } else if (tabName === 'network') {
+                document.getElementById('nav-network').classList.add('active');
+                document.getElementById('screen-network').style.display = 'flex';
+            }
+        }
+
+        // Open Service Screen with strict verification check
+        function openServiceScreen(serviceName) {
+            if (!isAccountVerified()) {
+                openPaymentGatewayModal('কাজ করতে হলে একাউন্ট ভেরিফাই করতে হবে। অটো পেমেন্ট গেটওয়ের মাধ্যমে ৫০ টাকা ফি দিয়ে ভেরিফাই সম্পন্ন করুন।');
+                return;
+            }
+
+            const subScreens = document.querySelectorAll('.sub-screen');
+            subScreens.forEach(screen => screen.style.display = 'none');
+
+            document.getElementById('screen-title').innerText = serviceName;
+            document.getElementById('service-screen').style.display = 'flex';
+        }
+
+        function closeServiceScreen() {
+            document.getElementById('service-screen').style.display = 'none';
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.innerText = message;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 2500);
+        }
+
+        function openExternalLink(url) {
+            window.open(url, '_blank');
+        }
+
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebar-overlay');
+            sidebar.classList.toggle('active');
+            overlay.style.display = sidebar.classList.contains('active') ? 'block' : 'none';
+        }
+
+        function handleLogout() {
+            if (confirm("আপনি কি নিশ্চিত যে আপনি লগ আউট করতে চান?")) {
+                showToast("সফলভাবে লগ আউট করা হয়েছে!");
+                setTimeout(() => location.reload(), 1000);
+            }
+        }
+
+        function copyReferral() {
+            const linkText = document.getElementById('ref-link').innerText;
+            navigator.clipboard.writeText(linkText).then(() => {
+                showToast("রেফারেল লিংক কপি হয়েছে!");
+            }).catch(() => {
+                showToast("লিংক কপি সম্পন্ন হয়েছে!");
+            });
+        }
+
+        // Copy Affiliate ID Function
+        function copyAffiliateId() {
+            const affiliateId = document.getElementById('affiliate-id-val').innerText.trim();
+            const copyIcon = document.getElementById('copy-affiliate-icon');
+
+            navigator.clipboard.writeText(affiliateId).then(() => {
+                showToast("অ্যাফিলিয়েট আইডি কপি হয়েছে: " + affiliateId);
+                if (copyIcon) {
+                    copyIcon.classList.remove('fa-copy', 'fa-regular');
+                    copyIcon.classList.add('fa-check', 'fa-solid');
+                    setTimeout(() => {
+                        copyIcon.classList.remove('fa-check', 'fa-solid');
+                        copyIcon.classList.add('fa-copy', 'fa-regular');
+                    }, 2000);
+                }
+            }).catch(() => {
+                const tempInput = document.createElement('input');
+                tempInput.value = affiliateId;
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                document.execCommand('copy');
+                document.body.removeChild(tempInput);
+                showToast("অ্যাফিলিয়েট আইডি কপি হয়েছে: " + affiliateId);
+                if (copyIcon) {
+                    copyIcon.classList.remove('fa-copy', 'fa-regular');
+                    copyIcon.classList.add('fa-check', 'fa-solid');
+                    setTimeout(() => {
+                        copyIcon.classList.remove('fa-check', 'fa-solid');
+                        copyIcon.classList.add('fa-copy', 'fa-regular');
+                    }, 2000);
+                }
+            });
+        }
+
+        // Ripple Effect
+        document.querySelectorAll('.ripple').forEach(button => {
+            button.addEventListener('click', function (e) {
+                const rect = this.getBoundingClientRect();
+                const circle = document.createElement('span');
+                const diameter = Math.max(rect.width, rect.height);
+                const radius = diameter / 2;
+
+                circle.style.width = circle.style.height = `${diameter}px`;
+                circle.style.left = `${e.clientX - rect.left - radius}px`;
+                circle.style.top = `${e.clientY - rect.top - radius}px`;
+                circle.classList.add('ripple-effect');
+
+                const existingRipple = this.querySelector('.ripple-effect');
+                if (existingRipple) { existingRipple.remove(); }
+
+                this.appendChild(circle);
+            });
+        });
+    </script>
+</body>
+</html>
